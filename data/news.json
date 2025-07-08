@@ -506,6 +506,284 @@
             "graphicAbstract": "BaSFuzz.png",
             "doi": "10.1016/j.jss.2025.112340",
             "href": "https://doi.org/10.1016/j.jss.2025.112340"
+        },
+        {
+            "id": "21",
+            "title": "硕士研究生杨君在CCF A类中文期刊《电子学报》发表最新研究成果——GITG：面向Gitee平台的issue标题自动生成方法",
+            "content": [
+                {
+                    "types": "text",
+                    "info": "在开源软件和开源平台中，开发人员可以通过提交issue来记录所发现的软件错误或提出新功能需求.由于缺乏经验、专业水平有限等原因，用户可能无法对issue内容进行准确有效地总结，导致issue标题质量较低，进而降低issue的解决效率.此外，现有的issue标题自动生成方法主要面向GitHub等英文开源平台，当应用在Gitee等国产开源平台时表现不佳.同时，现有方法主要使用issue主体描述作为输入，忽略了issue中的代码片段等重要信息."
+                },
+                {
+                    "types": "text",
+                    "info": "为此，本文提出一种面向Gitee平台的issue标题自动生成方法GITG（Gitee Issue Title Generation），针对包含中文和英文文本的issue，使用构建的Gitee issue数据集对支持中文的预训练模型Chinese BART进行微调，利用issue主体描述和代码片段的双模态信息来自动生成issue标题.为验证GITG的有效性，构建了包含18 242个Gitee issue样本的数据集."
+                },
+                {
+                    "types": "image",
+                    "info": "GITG.jpg"
+                },
+                {
+                    "types": "text",
+                    "info": "实验结果表明，GITG在ROUGE-1、ROUGE-2和ROUGE-L指标上相较于iTAPE和iTiger分别至少提升了13.09%、10.18%和12.84%，在BLEU和METEOR指标上同样取得了性能提升.人工评价结果表明，GITG生成标题的平均得分在整体分数、流畅性、信息性和简洁性4个评价指标上相较iTAPE和iTiger分别至少提升了26.7%、20.8%、24.2%和20.0%."
+                }
+            ],
+            "date": "2025年1月24日",
+            "graphicAbstract": "GITG.jpg",
+            "doi": "10.12263/DZXB.20240434",
+            "href": "https://doi.org/10.12263/DZXB.20240434"
+        },
+        {
+            "id": "22",
+            "title": "硕士研究生杨慧文在CCF A类中文期刊《软件学报》发表最新研究成果——基于目标制导符号执行的智能合约安全漏洞检测方法",
+            "content": [
+                {
+                    "types": "text",
+                    "info": "智能合约是运行在区块链上的计算机程序, 在扩展区块链功能、实现复杂应用的同时, 其潜在的安全漏洞也带来巨大风险. 基于符号执行的安全漏洞检测方法具有精确度高、可生成能复现漏洞的测试用例等优势. 然而,随着代码规模的增大, 符号执行技术容易受到路径爆炸、约束求解开销过大等问题的影响。"
+                },
+                {
+                    "types": "text",
+                    "info": "为此, 提出一种基于目标制导符号执行的智能合约安全漏洞检测方法, 首先将静态分析工具或人工标注的漏洞语句作为目标, 分析目标依赖语句, 补充事务序列以添加相关变量的符号约束. 然后, 基于智能合约字节码构建控制流图, 定位目标语句以及目标依赖语句所在的基本块, 剪枝控制流图以生成制导信息. 最后, 根据制导信息优化符号执行的路径探索策略,减少需要分析的基本块数量以及求解路径条件的时间, 最终高效地检测目标语句是否存在安全漏洞, 并输出可复现漏洞的测试用例."
+                },
+                {
+                    "types": "image",
+                    "info": "Smart-Target.png"
+                },
+                {
+                    "types": "text",
+                    "info": "基于上述思路实现 Smart-Target 原型工具, 在 SB Curated 数据集上与符号执行工具 Mythril 进行对比. 实验结果表明 Smart-Target 在安全漏洞检测和漏洞复现场景分别减少 60.76% 和 92.16% 的时间开销, 大幅提高符号执行效率. 此外, Smart-Target 通过分析目标依赖语句使其多检测到 22.02% 的安全漏洞, 有效提升了漏洞检测能力."
+                }
+            ],
+            "date": "2025年1月24日",
+            "graphicAbstract": "Smart-Target.png",
+            "doi": "10.13328/j.cnki.jos.007396",
+            "href": "http://dx.doi.org/10.13328/j.cnki.jos.007396"
+        },
+        {
+            "id": "23",
+            "title": "硕士研究生李静雯在EI期刊《计算机工程与应用》发表最新研究成果——融合多类特征的语句级缺陷定位方法",
+            "content": [
+                {
+                    "types": "text",
+                    "info": "现有基于深度学习的语句级缺陷定位方法通过深度学习模型学习各种传统缺陷定位方法计算出的可疑度值等特征来进行缺陷定位，其主要关注执行测试用例的动态信息，未关注缺陷语句与非缺陷语句之间的类不平衡问题，缺陷定位的准确性有待进一步提高。"
+                },
+                {
+                    "types": "text",
+                    "info": "为此，提出了一种融合多类特征的语句级缺陷定位方法SMSDFL（Combine Spectrum， Mutation and Semantic Features for Deep Fault Localization），该方法首先将多种基于频谱和变异的缺陷定位方法计算的可疑度值作为频谱特征和变异特征，利用数据流和控制流对代码语句进行切片，获取与对应语句存在依赖关系的代码片段，以计算Overlap、Tightness等度量元作为其语义特征；然后采用生成对抗网络扩增缺陷语句的特征数据来解决缺陷语句与非缺陷语句之间的类不平衡问题；最后将这三类特征进行融合输入到递归神经网络中计算语句的可疑度值，并根据可疑度值对语句进行降序排序，以定位缺陷语句。"
+                },
+                {
+                    "types": "image",
+                    "info": "SMSDFL.png"
+                },
+                {
+                    "types": "text",
+                    "info": "为评估SMSDFL的缺陷定位性能在Defects4J数据集上进行了实验。实验结果表明，SMSDFL取得了比现有方法更好的缺陷定位效果，其中，仅检查可疑语句排名中的第一条语句时，SMSDFL比Ochiai、MUSE、CGAN4FL和GRACE分别多定位到166、161、151、68条缺陷语句。 "
+                }
+            ],
+            "date": "2025年1月24日",
+            "graphicAbstract": "SMSDFL.png",
+            "doi": "",
+            "href": ""
+        },
+        {
+            "id": "24",
+            "title": "硕士研究生刘诗凡在SCI 一区期刊Expert Systems With Applications(ESWA)发表最新研究成果——SEOCD: Detecting obsolete code comments by fusing semantic features and expert features",
+            "content": [
+                {
+                    "types": "text",
+                    "info": "Code comments play a crucial role in enhancing software quality and maintainability. Despite their significance, developers frequently neglect to update corresponding comments in tandem with code changes, leading to inconsistencies between the code and the comments, commonly known as obsolete comments. Extensive research has been conducted on detecting obsolete comments to tackle this issue, with promising performance achieved by separately leveraging semantic or expert features. Semantic features and expert features describe code changes from different perspectives. Nevertheless, prior studies either take semantic or expert features to detect obsolete comments, constraining their overall effectiveness. "
+                },
+                {
+                    "types": "text",
+                    "info": "In response to this challenge this study introduces an obsolete comment detection approach called SEOCD (Semantic and Expert Features-based Obsolete Comment Detection), which fuses semantic features with expert features, extracting the former from samples using a Transformer-based model and the later through rules related to code modifications and comments. The fusion of these two features is then employed to train a MLP (Multilayer Perceptron) model to classify the obsolescence of code comments. The results of the obsolete code comment detection approach provide by SEOCD can guide the comment update process, thereby enhancing the efficiency of the updating comments."
+                },
+                {
+                    "types": "image",
+                    "info": "SEOCD.jpg"
+                },
+                {
+                    "types": "text",
+                    "info": "Experimental results demonstrate that SEOCD outperforms the state-of-the-art approach in Precision, Recall, and F1-score, with improvements of 3.1%, 1.7%, and 4.6%, respectively."
+                }
+            ],
+            "date": "2025年3月27日",
+            "graphicAbstract": "SEOCD.jpg",
+            "doi": "10.1016/j.eswa.2025.127470",
+            "href": "https://doi.org/10.1016/j.eswa.2025.127470"
+        },
+        {
+            "id": "25",
+            "title": "硕士研究生符海阔在EI期刊《计算机工程与应用》发表最新研究成果——QAAttack:基于文本特征分析的问答系统模糊测试方法",
+            "content": [
+                {
+                    "types": "text",
+                    "info": "传统问答系统测试方法依赖预先标注的数据集，但人工标注成本较高，且某些测试场景中通常缺少标注数据。为应对这一问题，研究人员提出通过构建蜕变关系生成测试数据以评估系统鲁棒性。然而，现有方法在测试用例生成过程中缺乏测试指导和选择策略，导致生成大量冗余或无效的测试数据，可能影响测试结果有效性。"
+                },
+                {
+                    "types": "text",
+                    "info": "针对上述问题，本文提出基于文本特征分析的问答系统模糊测试方法QAAttack，采用多种蜕变关系进行种子变异，计算问题句中单词的TF-IDF分数以确定优先变异顺序，并引入基于答案语义相似度的种子选择策略，在每轮迭代中优先选择最可能触发系统错误的种子。"
+                },
+                {
+                    "types": "image",
+                    "info": "QAAttack.jpg"
+                },
+                {
+                    "types": "text",
+                    "info": "实验结果表明，与现有方法相比，QAAttack显著提升了检测问答系统错误行为的有效性，其检测的错误行为数量较QAAskeR多出14,236个；此外，其触发错误行为的成功率相较于QATest提升了37.08%。"
+                }
+            ],
+            "date": "2025年4月30日",
+            "graphicAbstract": "QAAttack.jpg",
+            "doi": "",
+            "href": ""
+        },
+        {
+            "id": "26",
+            "title": "硕士研究生施前程在CCF C类国际会议SMC发表最新研究成果——SPRoC: Semantics-Preserving Mutations for Robustness Evaluation of Code Generation Large Language Models",
+            "content": [
+                {
+                    "types": "text",
+                    "info": "随着大语言模型（LLM）在代码生成领域的广泛应用，其生成能力不断增强，但模型对输入提示的微小变化仍表现出显著的不稳定性，给实际使用带来了挑战。现有变异提示方法普遍存在限制，如Radamsa等结构变异方法主要通过随机插入、删除或替换字符等操作对提示进行变异，缺乏对提示语义和结构的理解，这种方法不能模拟真实用户对问题表述方式的多样性，导致无法有效评估LLM生成代码的鲁棒性。"
+                },
+                {
+                    "types": "text",
+                    "info": "为此，本文提出了一种基于提示变异的大语言模型代码生成任务鲁棒性评估方法——SPRoC（Semantics-Preserving Robustness of Code generation）。该方法基于BERT模型对自然语言问题进行变异操作，生成一组在语义上与原始提示一致但在表述上具有多样性的变异提示，进而构造出包含变异提示的数据集，然后对 LLM生成的代码进行功能性验证。 SPRoC通过比对变异前后LLM生成代码的功能正确性检测LLM在应对输入变化时的鲁棒性。"
+                },
+                {
+                    "types": "image",
+                    "info": "SPRoC.png"
+                },
+                {
+                    "types": "text",
+                    "info": "我们以HumanEval数据集为基础，分别在ChatGPT、DeepSeek、Claude、ERNIE、Qwen等多个主流大语言模型上开展实验，评估模型在面对SPRoC变异后的生成性能。实验结果表明，SPRoC能够在较小语义变化下降低模型的Pass@k值，Pass@1、5、10分别降低了4.46%、1.83%、1.22%，且优于现有的基线方法Radamsa。在BLEU与BERTScore等相似性指标上也表现更优，分别提升了12.96%、1.83%。本文工作不仅验证了当前主流模型对在语义保持变异下的鲁棒性，也展示了SPRoC方法在评估模型鲁棒性方面的实用性和通用性，为提升大语言模型在实际开发场景中的稳定性提供了新的研究路径。"
+                }
+            ],
+            "date": "2025年6月30日",
+            "graphicAbstract": "SPRoC.png",
+            "doi": "",
+            "href": ""
+        },
+        {
+            "id": "27",
+            "title": "硕士研究生杨凯淇在CCF C类国际会议SMC发表最新研究成果——SCoVerLLM: Smart Contract Vulnerability Detection via LLM-Based In-Context and Chain-of-Thought Prompts",
+            "content": [
+                {
+                    "types": "text",
+                    "info": "智能合约作为区块链技术的重要应用，已应用到金融、物联网等多个领域，但其潜在漏洞可能导致重大经济损失，因此需要高效准确的漏洞检测方法以保障其安全性。现有检测方法多依赖预定义规则或判别模型，面临维护成本高、语义理解能力弱等问题。"
+                },
+                {
+                    "types": "text",
+                    "info": "为此，本文提出了一种大语言模型的智能合约漏洞检测方法SCoVerLLM(Smart Contract Vulnerability Detection via LLM-Based In-Context and Chain-of-Thought Prompts)，通过结合深度学习模型生成的预测信息与相似合约示例，利用上下文学习提示和结构化思维链模板，指导LLM逐步解析合约逻辑进行漏洞检测，从而提升智能合约漏洞检测性能。"
+                },
+                {
+                    "types": "image",
+                    "info": "SCoVerLLM.png"
+                },
+                {
+                    "types": "text",
+                    "info": "实验结果表明，SCoVerLLM在多个性能指标上优于MANDO、Mythril等4个方法，Accuracy、Precision和F_1分别提高了10.72%~19.20%、8.70%~18.51%和10.09%~25.08%。"
+                }
+            ],
+            "date": "2025年6月30日",
+            "graphicAbstract": "SCoVerLLM.png",
+            "doi": "",
+            "href": ""
+        },
+        {
+            "id": "28",
+            "title": "硕士研究生段欣虹在CCF C类国际会议SMC发表最新研究成果——Empowering LLM-based Software Defect Prediction with Chain-of-Thought and In-context Learning",
+            "content": [
+                {
+                    "types": "text",
+                    "info": "软件缺陷预测通过对项目历史数据进行分析，提前识别潜在缺陷，以降低开发成本并提升软件质量。现有方法依赖于人工设计特征或深度学习模型，既难以捕捉复杂语义和上下文依赖，又需要大量标注数据。"
+                },
+                {
+                    "types": "text",
+                    "info": "针对上述问题，本文提出一种基于大语言模型（Large Language Models, LLMs）的软件缺陷预测方法ELASTIC（Empowering LLM-based Software Defect Prediction with Chain-of-Thought and In-context Learning）。ELASTIC采用MinHash与局部敏感哈希算法检索相似代码片段，并构建融合代码变更上下文与分步推理路径的增强提示词，无需对LLMs进行微调即可实现软件缺陷预测。"
+                },
+                {
+                    "types": "image",
+                    "info": "ELASTIC.png"
+                },
+                {
+                    "types": "text",
+                    "info": "在包含21，047个样本的FunctionSStuBs4J数据集上的实验结果表明，ELASTIC的F1值较现有最优方法提升0.9%，Recall提升31.9%，显著优于COMPDEFECT等基线模型。"
+                }
+            ],
+            "date": "2025年6月30日",
+            "graphicAbstract": "ELASTIC.png",
+            "doi": "",
+            "href": ""
+        },
+        {
+            "id": "29",
+            "title": "硕士研究生何启帆在CCF C类国际会议SMC发表最新研究成果——MR-OT: a Metamorphic Testing Method for Object Tracking Models",
+            "content": [
+                {
+                    "types": "text",
+                    "info": "为确保DNN模型的可靠性，研究人员提出了多种测试方法。但现有测试方法多针对图像识别等静态场景任务，未关注如目标跟踪、行为检测等动态场景中因输入数据的时间连续性和环境条件的动态变化所带来的挑战。"
+                },
+                {
+                    "types": "text",
+                    "info": "在本文中，我们针对动态场景提出一种基于蜕变测试的目标跟踪模型测试方法MR-OT，设计了五种蜕变关系来评估待测模型在自然天气变化、速度变化、环境干扰等三类常见场景下的鲁棒性，并结合生成式对抗网络等方法，根据源测试数据生成大量真实且具有时间连续性的测试数据。"
+                },
+                {
+                    "types": "image",
+                    "info": "MR-OT.jpg"
+                },
+                {
+                    "types": "text",
+                    "info": "实验结果表明，MR-OT检测到的蜕变关系违反率更高，相比DeepTest提升0.06~0.49，相比MT4MOT提升0.04~0.57。"
+                }
+            ],
+            "date": "2025年6月30日",
+            "graphicAbstract": "MR-OT.jpg",
+            "doi": "",
+            "href": ""
+        },
+        {
+            "id": "30",
+            "title": "硕士研究生王正武在EI期刊《计算机工程与应用》发表最新研究成果——嵌入式设备固件模糊测试技术综述",
+            "content": [
+                {
+                    "types": "text",
+                    "info": "为确保嵌入式设备的安全可靠，需要对嵌入式设备固件进行充分测试，以及时发现并修复其中的漏洞。近年来，有研究人员将模糊测试技术应用到嵌入式设备固件的测试中，有效提高了测试效率。本文总结了 2014 年至 2024 年关于嵌入式设备固件模糊测试的相关研究成果，将嵌入式设备固件模糊测试过程分为三个阶段：预处理、测试环境建立、模糊测试执行，并分别介绍了各阶段的研究成果。此外，本文还讨论了现有嵌入式设备固件模糊测试的数据集和评估指标，并对嵌入式设备固件模糊测试未来的研究方向进行展望，以为研究人员提供参考。"
+                },
+                {
+                    "types": "image",
+                    "info": "ZongshuFirmFuzz.png"
+                }
+            ],
+            "date": "2025年7月3日",
+            "graphicAbstract": "ZongshuFirmFuzz.png",
+            "doi": "",
+            "href": ""
+        },
+        {
+            "id": "31",
+            "title": "硕士研究生顾锡国在SCI 一区Top期刊Applied Soft Computing Journal发表最新研究成果——Smart Contract Vulnerability Detection Method Based on Multi-View Fusion",
+            "content": [
+                {
+                    "types": "text",
+                    "info": "随着区块链技术的快速发展，智能合约因其广泛应用和巨大经济价值，成为攻击者的主要目标，其潜在漏洞可能导致严重的经济损失。现有的智能合约漏洞检测方法通常依赖于从源代码或字节码中提取控制流图、函数调用图或抽象语法树来表征合约的语义和语法特征。然而，这些方法在特征表示的全面性和重要性权重分配上仍存在不足，影响检测精度。"
+                },
+                {
+                    "types": "text",
+                    "info": "为此，本文提出了一种基于多视图融合学习智能合约漏洞检测方法（MV-SCVD）。该方法通过解析智能合约源代码，构建异构抽象语法树、异构控制流图和异构函数调用图，并利用Multi-Level Graph Neural Networks对三种图的特征进行独立学习，最后采用图注意力网络融合这些特征，并通过分类器检测合约中的漏洞及其类型。"
+                },
+                {
+                    "types": "image",
+                    "info": "MV-SCVD.png"
+                },
+                {
+                    "types": "text",
+                    "info": "在包含1269个智能合约的公开数据集上的实验结果表明，与现有方法相比，MV-SCVD在7类常见漏洞上的检测性能显著提升，Accuracy平均值提升了13.67%～31.25%，Precision的平均值提升了6.92%～20.09%，Recall的平均值提升了20.78%～58.90%，F_1的平均值提升了15.67%～46.47%。"
+                }
+            ],
+            "date": "2025年7月5日",
+            "graphicAbstract": "MV-SCVD.png",
+            "doi": "",
+            "href": ""
         }
     ]
 }
