@@ -839,7 +839,7 @@
         },
         {
             "id": "34",
-            "title": "硕士研究生韩骐鸿在CCF T1、A类中文期刊计算机学报发表最新研究成果——基于协同注意力解释的视觉语言预训练模型多模态攻击方法",
+            "title": "硕士研究生韩骐鸿在CCF T1、A类中文期刊《计算机学报》发表最新研究成果——基于协同注意力解释的视觉语言预训练模型多模态攻击方法",
             "content": [
                 {
                     "types": "text",
@@ -860,8 +860,43 @@
             ],
             "date": "2025年10月11日",
             "graphicAbstract": "CoAtt-attack.png",
-            "doi": "",
-            "href": ""
+            "doi": "11.1826.TP.20251121.1047.006",
+            "href": "https://link.cnki.net/urlid/11.1826.TP.20251121.1047.006"
+        },
+        {
+            "id": "35",
+            "title": "硕士研究生张瑞宸在CCF T1、A类中文期刊《计算机研究与发展》发表最新研究成果——基于大语言模型的数据库管理系统模糊测试方法",
+            "content": [
+                {
+                    "types": "text",
+                    "info": "数据库管理系统（Database Management System，DBMS）作为数据管理与存储的关键软件，其可靠性直接影响数据密集型系统的安全稳定运行。近年来，模糊测试因其具备人工成本低、测试效率高等特点，成为DBMS测试方法之一。然而现有的DBMS模糊测试方法面临测试用例覆盖能力不足与多DBMS适配性差两大问题，限制了测试的效果和泛用性。"
+                },
+                {
+                    "types": "text",
+                    "info": "为此，CLCC（Curated LLM Case Construct）是一种基于大语言模型（Large Language Model，LLM）的DBMS模糊测试方法。该方法在模糊测试前，利用LLM对初始种子进行构建，并在模糊测试过程中，根据边覆盖情况筛选种子，引导LLM生成测试用例。"
+                },
+                {
+                    "types": "image",
+                    "info": "CLCC.jpeg"
+                },
+                {
+                    "types": "text",
+                    "info": "与SQUIRREL、SQLRight和ParserFuzz进行的对比实验表明，CLCC测试SQLite、MySQL、MariaDB、DuckDB和PostgreSQL的边覆盖数量比SQUIRREL增加了14.96~49.31%；测试SQLite、MySQL和PostgreSQL的边覆盖数量比SQLRight增加了6.09%~17.10%；测试SQLite、MySQL和MariaDB的边覆盖数量比ParserFuzz增加了17.95~41.20%。"
+                },
+                {
+                    "types":"image",
+                    "info":"CLCC_New.jpeg"
+                },
+                {
+                    "types":"text",
+                    "info":"该研究在2025年中国软件大会上作汇报。"
+                }
+                
+            ],
+            "date": "2025年12月31日",
+            "graphicAbstract": "CLCC.jpeg",
+            "doi": "10.7544/issn1000-1239.202550692",
+            "href": "https://dx.doi.org/10.7544/issn1000-1239.202550692"
         }
     ]
 }
