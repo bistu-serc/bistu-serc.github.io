@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bistu-serc.github.io/sitemap.xml
