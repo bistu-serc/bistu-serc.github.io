@@ -434,16 +434,98 @@
     });
   }
 
+  function isCultureRoute() {
+    return /^#\/culture(?:$|[/?])/.test(window.location.hash || "");
+  }
+
+  function enableCultureLazyImage(img, index, io) {
+    if (!img || img.nodeType !== 1) {
+      return;
+    }
+
+    img.setAttribute("decoding", "async");
+
+    if (index < 6) {
+      img.dataset.cultureLazyProcessed = "keep";
+      return;
+    }
+
+    if (img.dataset.cultureLazyApplied === "1") {
+      return;
+    }
+
+    var originalSrc = img.getAttribute("src");
+    if (!originalSrc) {
+      return;
+    }
+
+    img.dataset.cultureLazySrc = originalSrc;
+    img.dataset.cultureLazyApplied = "1";
+    img.dataset.cultureLazyProcessed = "1";
+    img.removeAttribute("src");
+    img.setAttribute("loading", "lazy");
+    img.setAttribute("fetchpriority", "low");
+
+    if (!io) {
+      img.setAttribute("src", originalSrc);
+      return;
+    }
+
+    io.observe(img);
+  }
+
+  function optimizeCultureRouteImages(root) {
+    if (!isCultureRoute()) {
+      return;
+    }
+
+    var scope = root && root.querySelectorAll ? root : document;
+    var cultureImages = scope.querySelectorAll
+      ? scope.querySelectorAll("#culture_list img, #culture_list .el-image__inner")
+      : [];
+
+    var io = null;
+    if (typeof IntersectionObserver !== "undefined") {
+      io = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            return;
+          }
+          var target = entry.target;
+          var lazySrc = target && target.dataset ? target.dataset.cultureLazySrc : "";
+          if (lazySrc && !target.getAttribute("src")) {
+            target.setAttribute("src", lazySrc);
+          }
+          observer.unobserve(target);
+        });
+      }, {
+        rootMargin: "220px 0px"
+      });
+    }
+
+    Array.prototype.forEach.call(cultureImages, function (img, index) {
+      enableCultureLazyImage(img, index, io);
+    });
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
       optimizeImages(document);
+      optimizeCultureRouteImages(document);
     });
   } else {
     optimizeImages(document);
+    optimizeCultureRouteImages(document);
   }
 
   window.addEventListener("load", function () {
     optimizeImages(document);
+    optimizeCultureRouteImages(document);
+  });
+
+  window.addEventListener("hashchange", function () {
+    optimizeImages(document);
+    optimizeCultureRouteImages(document);
   });
 
   if (typeof MutationObserver !== "undefined") {
@@ -455,8 +537,10 @@
           }
           if (node.tagName && node.tagName.toLowerCase() === "img") {
             optimizeImages(node.parentNode || document);
+            optimizeCultureRouteImages(document);
           } else if (node.querySelectorAll) {
             optimizeImages(node);
+            optimizeCultureRouteImages(document);
           }
         });
       });

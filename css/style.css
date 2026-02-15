@@ -1375,3 +1375,8 @@ ul.pattern .color8 {
         display: none;
     }
 }
+
+/* Hide template color switcher in production */
+#style-switcher {
+    display: none !important;
+}
