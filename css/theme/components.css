@@ -432,6 +432,16 @@ body.lang-en #navbar .serc-brand-title {
   font-style: normal !important;
 }
 
+#teacher .testimonial-decs p.text-muted.text-left.mb-0 {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+}
+
 /* Footer content typography */
 .footer .footer-contact-line {
   display: grid !important;
