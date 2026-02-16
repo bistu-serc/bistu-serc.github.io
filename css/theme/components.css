@@ -32,6 +32,38 @@
   margin-left: auto !important;
 }
 
+@media (min-width: 992px) {
+  #navbar #navbarCollapse {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  #navbar #mySidenav .nav-item {
+    display: flex !important;
+    align-items: center !important;
+    position: relative !important;
+  }
+
+  #navbar #mySidenav .nav-link {
+    position: relative !important;
+    z-index: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    min-height: 44px !important;
+    line-height: 1.25 !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    pointer-events: auto !important;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  #navbar #mySidenav .nav-link::before,
+  #navbar #mySidenav .nav-link::after {
+    pointer-events: none !important;
+  }
+}
+
 #mySidenav .serc-lang-switch {
   display: inline-flex !important;
   align-items: center !important;
