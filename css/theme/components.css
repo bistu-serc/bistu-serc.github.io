@@ -412,16 +412,34 @@ body.lang-en #navbar .serc-brand-title {
   box-shadow: none !important;
 }
 
-#teacher .testimonial-box img,
-#teacher .testimonial-box img.img-thumbnail {
+#teacher .testimonial-decs > a[href*="#/teacherInfo"] {
   width: 180px !important;
   height: 180px !important;
-  aspect-ratio: 1 / 1;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 1rem !important;
   border-radius: 50% !important;
-  object-fit: contain !important;
-  object-position: center top !important;
-  background-color: transparent !important;
+  overflow: hidden !important;
   border: 1px solid var(--ink-300) !important;
+  box-sizing: border-box !important;
+  background-color: transparent !important;
+}
+
+#teacher .testimonial-box img,
+#teacher .testimonial-box img.img-thumbnail {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 0 !important;
+  object-fit: cover !important;
+  object-position: center 50% !important;
+  position: relative !important;
+  top: 18px !important;
+  transform: scale(1.08) !important;
+  transform-origin: center top !important;
+  background-color: transparent !important;
+  border: none !important;
   box-sizing: border-box !important;
   display: block !important;
   margin-left: auto !important;
@@ -545,8 +563,7 @@ body.lang-en #navbar .serc-brand-title {
     font-size: 13px !important;
   }
 
-  #teacher .testimonial-box img,
-  #teacher .testimonial-box img.img-thumbnail {
+  #teacher .testimonial-decs > a[href*="#/teacherInfo"] {
     width: 148px !important;
     height: 148px !important;
   }
