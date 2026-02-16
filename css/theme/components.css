@@ -413,8 +413,8 @@ body.lang-en #navbar .serc-brand-title {
 }
 
 #teacher .testimonial-decs > a[href*="#/teacherInfo"] {
-  width: 180px !important;
-  height: 180px !important;
+  width: 153px !important;
+  height: 153px !important;
   display: block !important;
   margin-left: auto !important;
   margin-right: auto !important;
@@ -428,15 +428,16 @@ body.lang-en #navbar .serc-brand-title {
 
 #teacher .testimonial-box img,
 #teacher .testimonial-box img.img-thumbnail {
-  width: 100% !important;
-  height: 100% !important;
+  width: 117.647% !important;
+  height: 117.647% !important;
   aspect-ratio: 1 / 1 !important;
   border-radius: 0 !important;
   object-fit: contain !important;
   object-position: center top !important;
   position: relative !important;
-  top: 28px !important;
-  transform: none !important;
+  left: 50% !important;
+  top: 5px !important;
+  transform: translateX(-50%) !important;
   background-color: transparent !important;
   border: none !important;
   box-sizing: border-box !important;
@@ -563,8 +564,8 @@ body.lang-en #navbar .serc-brand-title {
   }
 
   #teacher .testimonial-decs > a[href*="#/teacherInfo"] {
-    width: 148px !important;
-    height: 148px !important;
+    width: 126px !important;
+    height: 126px !important;
   }
 }
 
