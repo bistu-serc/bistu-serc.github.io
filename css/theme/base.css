@@ -1,0 +1,256 @@
+/* Base typography and color system */
+
+html,
+body {
+  background: transparent;
+  color: var(--ink-700);
+  font-family: var(--font-body) !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-size: 17px;
+  line-height: 1.9;
+  letter-spacing: 0;
+}
+
+p,
+li,
+td,
+th,
+label,
+input,
+textarea,
+select,
+.text-muted,
+.section-subtitle,
+.new,
+.time,
+.el-descriptions,
+.el-table {
+  font-family: var(--font-body) !important;
+  color: var(--ink-700) !important;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.small,
+small,
+.footer-alt,
+.copyright,
+.el-statistic .head {
+  color: var(--ink-500) !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.section-title,
+.main-title,
+.degree-title,
+.year-title,
+.student_name,
+.student-name,
+.route-page-title {
+  color: var(--ink-900) !important;
+  font-family: var(--font-display) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+h1,
+.h1 {
+  font-size: 42px !important;
+  line-height: 1.2 !important;
+}
+
+h2,
+.h2,
+.section-title {
+  font-size: 34px !important;
+  line-height: 1.25 !important;
+}
+
+h3,
+.h3 {
+  font-size: 26px !important;
+  line-height: 1.3 !important;
+}
+
+h4,
+.h4 {
+  font-size: 22px !important;
+  line-height: 1.35 !important;
+}
+
+h5,
+.h5 {
+  font-size: 18px !important;
+  line-height: 1.4 !important;
+}
+
+h6,
+.h6 {
+  font-size: 16px !important;
+  line-height: 1.45 !important;
+}
+
+.section-title {
+  margin-bottom: 0 !important;
+  padding-bottom: 0.6rem !important;
+}
+
+.section-title-border {
+  display: none !important;
+}
+
+.section-subtitle {
+  letter-spacing: 0 !important;
+}
+
+a,
+.read-btn,
+.blog-title {
+  color: var(--ink-700) !important;
+}
+
+a:hover,
+a:focus,
+.blog-title:hover,
+.read-btn:hover {
+  color: var(--ink-900) !important;
+}
+
+#direction .section-title,
+#project .section-title,
+#achievement_paper .section-title,
+#achievement_patent .section-title,
+#achievement_book .section-title,
+#achievement_copyright .section-title {
+  font-size: 30px !important;
+  line-height: 1.3 !important;
+}
+
+#direction .plan-features p,
+#direction .plan-features p b {
+  font-size: 17px !important;
+  line-height: 1.8 !important;
+}
+
+#project .services-box h4 {
+  font-size: 20px !important;
+  line-height: 1.5 !important;
+}
+
+#project .services-box p {
+  font-size: 16px !important;
+  line-height: 1.75 !important;
+}
+
+@media (max-width: 991.98px) {
+  body,
+  p,
+  li,
+  td,
+  th,
+  label,
+  input,
+  textarea,
+  select,
+  .text-muted {
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+  }
+
+  h1,
+  .h1 {
+    font-size: 34px !important;
+  }
+
+  h2,
+  .h2,
+  .section-title {
+    font-size: 30px !important;
+  }
+
+  h3,
+  .h3 {
+    font-size: 24px !important;
+  }
+
+  h4,
+  .h4 {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body,
+  p,
+  li,
+  td,
+  th,
+  label,
+  input,
+  textarea,
+  select,
+  .text-muted {
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+  }
+
+  h1,
+  .h1 {
+    font-size: 30px !important;
+  }
+
+  h2,
+  .h2,
+  .section-title {
+    font-size: 26px !important;
+  }
+
+  h3,
+  .h3 {
+    font-size: 21px !important;
+  }
+
+  h4,
+  .h4 {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  body,
+  p,
+  li,
+  td,
+  th,
+  label,
+  input,
+  textarea,
+  select,
+  .text-muted {
+    font-size: 15px !important;
+    line-height: 1.72 !important;
+  }
+
+  h1,
+  .h1 {
+    font-size: 26px !important;
+  }
+
+  h2,
+  .h2,
+  .section-title {
+    font-size: 23px !important;
+  }
+}

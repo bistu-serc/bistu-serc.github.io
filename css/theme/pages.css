@@ -1,0 +1,590 @@
+/* Route/page specific rules */
+
+/* Home intro rules */
+#Introduction .features-box > h2,
+#Introduction .features-box > hr,
+#Introduction .features-box > br {
+  display: none !important;
+}
+
+body.route-home #Introduction .row.align-items-center > .col-lg-4.order-1.order-lg-2 {
+  display: none !important;
+}
+
+body.route-home #Introduction .row.align-items-center > .col-lg-8.order-2.order-lg-1 {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+}
+
+/* Home research summary headings */
+#research_show .el-divider {
+  display: none !important;
+}
+
+/* Unified page title system */
+.route-page-title,
+#student_list .main-title,
+body.route-about #Introduction .features-box > h2 {
+  position: relative !important;
+  z-index: 1 !important;
+  display: block !important;
+  color: var(--ink-900) !important;
+  font-family: var(--font-display) !important;
+  font-size: 30px !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0 !important;
+  margin: 0 0 24px 0 !important;
+  padding-top: 22px !important;
+}
+
+.route-page-title::before,
+#student_list .main-title::before,
+body.route-about #Introduction .features-box > h2::before {
+  content: attr(data-title-text);
+  position: absolute;
+  top: -34px;
+  left: -2px;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  font-family: var(--font-display) !important;
+  font-size: clamp(56px, 10vw, 132px);
+  font-weight: 600 !important;
+  line-height: 0.92 !important;
+  letter-spacing: 0.04em !important;
+  color: rgba(18, 18, 18, 0.09) !important;
+}
+
+.route-page-title[data-route-title-key="news-list"]::before {
+  left: 6px;
+}
+
+.route-page-title[data-route-title-key="achievement"]::before {
+  left: -4px;
+}
+
+.route-page-title[data-route-title-key="tool"]::before {
+  left: 10px;
+}
+
+.route-page-title[data-route-title-key="culture"]::before {
+  left: 6px;
+}
+
+/* About page */
+body.route-about #Introduction.section {
+  margin-top: 92px !important;
+  padding-top: 20px !important;
+  padding-bottom: 70px !important;
+}
+
+body.route-about #Introduction > br {
+  display: none !important;
+}
+
+body.route-about #Introduction .features-box {
+  margin-top: 0 !important;
+}
+
+body.route-about #Introduction .features-box > h2 {
+  display: block !important;
+  margin: 0 0 20px 0 !important;
+}
+
+body.route-about #Introduction .features-box > h2::before {
+  left: 8px;
+}
+
+/* Culture page */
+#culture_list .image-grid {
+  margin: 0 auto !important;
+  display: block !important;
+  columns: 3 !important;
+  column-gap: 18px !important;
+}
+
+#culture_list .route-page-title[data-route-title-key="culture"] {
+  width: 100% !important;
+  max-width: var(--container-max) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  box-sizing: border-box !important;
+  margin-bottom: 20px !important;
+}
+
+#culture_list .image-grid::before {
+  content: none !important;
+  display: none !important;
+}
+
+#culture_list .image-item.parent {
+  display: inline-block !important;
+  width: 100% !important;
+  margin: 0 0 18px !important;
+  break-inside: avoid !important;
+  -webkit-column-break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+
+#culture_list .image-item .el-image {
+  width: 100% !important;
+  display: block !important;
+  overflow: hidden !important;
+  line-height: 0 !important;
+}
+
+#culture_list .image-item .el-image__inner {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+  transition: transform 0.28s ease, filter 0.28s ease !important;
+}
+
+#culture_list .image-item:hover .el-image__inner {
+  transform: scale(1.016) !important;
+  filter: brightness(1.03) contrast(1.01) !important;
+}
+
+/* Culture image viewer (lightbox) */
+html.viewer-open,
+body.viewer-open {
+  overflow: hidden !important;
+}
+
+body.route-culture .el-image-viewer__wrapper {
+  z-index: 2400 !important;
+  animation: serc-viewer-fade-in 0.24s ease-out both;
+}
+
+body.route-culture .el-image-viewer__mask {
+  opacity: 1 !important;
+  background: rgba(10, 10, 10, 0.78) !important;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+body.route-culture .el-image-viewer__canvas img {
+  max-width: min(90vw, 1440px) !important;
+  max-height: 86vh !important;
+  border-radius: 8px !important;
+  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.46) !important;
+  animation: serc-viewer-image-in 0.28s cubic-bezier(0.22, 0.65, 0.19, 1) both;
+}
+
+body.route-culture .el-image-viewer__actions {
+  display: none !important;
+}
+
+body.route-culture .el-image-viewer__btn {
+  width: 48px !important;
+  height: 48px !important;
+  opacity: 1 !important;
+  color: #f7f7f7 !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  background: rgba(18, 18, 18, 0.56) !important;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease !important;
+}
+
+body.route-culture .el-image-viewer__btn:hover {
+  background: rgba(28, 28, 28, 0.76) !important;
+  border-color: rgba(255, 255, 255, 0.36) !important;
+  transform: translateY(-50%) scale(1.02) !important;
+}
+
+body.route-culture .el-image-viewer__close {
+  top: 24px !important;
+  right: 24px !important;
+  transform: none !important;
+}
+
+body.route-culture .el-image-viewer__close:hover {
+  transform: scale(1.02) !important;
+}
+
+body.route-culture .el-image-viewer__prev {
+  left: 24px !important;
+}
+
+body.route-culture .el-image-viewer__next {
+  right: 24px !important;
+}
+
+@keyframes serc-viewer-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes serc-viewer-image-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.route-culture .el-image-viewer__wrapper,
+  body.route-culture .el-image-viewer__canvas img,
+  body.route-culture .el-image-viewer__btn {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Tool page */
+#tool_fuzzer .el-card,
+#tool_vulDetector .el-card {
+  width: 100% !important;
+  margin: 32px auto !important;
+  box-sizing: border-box !important;
+}
+
+#tool_fuzzer .demo-image__preview .el-image {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#student_list .main-title::before {
+  left: -6px;
+}
+
+/* Achievement table layout */
+#achievement_paper #paper,
+#achievement_patent #paper,
+#achievement_book #paper,
+#achievement_copyright #paper {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+#achievement_paper.section,
+#achievement_patent.section,
+#achievement_book.section,
+#achievement_copyright.section {
+  overflow-x: clip !important;
+}
+
+.table-scroll {
+  width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+#achievement_paper .el-table,
+#achievement_patent .el-table,
+#achievement_book .el-table,
+#achievement_copyright .el-table,
+#achievement_paper .el-table__header-wrapper table,
+#achievement_paper .el-table__body-wrapper table,
+#achievement_patent .el-table__header-wrapper table,
+#achievement_patent .el-table__body-wrapper table,
+#achievement_book .el-table__header-wrapper table,
+#achievement_book .el-table__body-wrapper table,
+#achievement_copyright .el-table__header-wrapper table,
+#achievement_copyright .el-table__body-wrapper table {
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+}
+
+#achievement_paper .el-table colgroup col:nth-child(1) { width: 4% !important; }
+#achievement_paper .el-table colgroup col:nth-child(2) { width: 44% !important; }
+#achievement_paper .el-table colgroup col:nth-child(3) { width: 8% !important; }
+#achievement_paper .el-table colgroup col:nth-child(4) { width: 8% !important; }
+#achievement_paper .el-table colgroup col:nth-child(5) { width: 12% !important; }
+#achievement_paper .el-table colgroup col:nth-child(6) { width: 14% !important; }
+#achievement_paper .el-table colgroup col:nth-child(7) { width: 10% !important; }
+
+#achievement_patent .el-table colgroup col:nth-child(1) { width: 6% !important; }
+#achievement_patent .el-table colgroup col:nth-child(2) { width: 24% !important; }
+#achievement_patent .el-table colgroup col:nth-child(3) { width: 36% !important; }
+#achievement_patent .el-table colgroup col:nth-child(4) { width: 22% !important; }
+#achievement_patent .el-table colgroup col:nth-child(5) { width: 12% !important; }
+
+#achievement_copyright .el-table colgroup col:nth-child(1) { width: 8% !important; }
+#achievement_copyright .el-table colgroup col:nth-child(2) { width: 62% !important; }
+#achievement_copyright .el-table colgroup col:nth-child(3) { width: 30% !important; }
+
+#achievement_paper .el-table colgroup col,
+#achievement_patent .el-table colgroup col,
+#achievement_book .el-table colgroup col,
+#achievement_copyright .el-table colgroup col {
+  min-width: 0 !important;
+}
+
+#achievement_paper .el-table .cell,
+#achievement_patent .el-table .cell,
+#achievement_book .el-table .cell,
+#achievement_copyright .el-table .cell {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+#achievement_paper .el-table th:nth-child(2) .cell,
+#achievement_paper .el-table td:nth-child(2) .cell,
+#achievement_patent .el-table th:nth-child(2) .cell,
+#achievement_patent .el-table td:nth-child(2) .cell,
+#achievement_patent .el-table th:nth-child(3) .cell,
+#achievement_patent .el-table td:nth-child(3) .cell,
+#achievement_copyright .el-table th:nth-child(2) .cell,
+#achievement_copyright .el-table td:nth-child(2) .cell {
+  text-align: left !important;
+}
+
+#achievement_paper .el-table th,
+#achievement_paper .el-table td,
+#achievement_patent .el-table th,
+#achievement_patent .el-table td,
+#achievement_book .el-table th,
+#achievement_book .el-table td,
+#achievement_copyright .el-table th,
+#achievement_copyright .el-table td {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
+#achievement_paper .el-tag,
+#achievement_patent .el-tag,
+#achievement_book .el-tag,
+#achievement_copyright .el-tag {
+  font-size: 12px !important;
+  line-height: 1.3 !important;
+  padding: 0 6px !important;
+}
+
+/* Scroll motion system */
+body.motion-ready .reveal-init {
+  opacity: 0 !important;
+  transform: translate3d(0, var(--motion-reveal-y), 0) !important;
+  filter: blur(var(--motion-reveal-blur));
+  will-change: opacity, transform, filter;
+  transition:
+    opacity var(--motion-duration-base) var(--motion-ease-standard),
+    transform var(--motion-duration-base) var(--motion-ease-standard),
+    filter var(--motion-duration-base) var(--motion-ease-standard) !important;
+  transition-delay: var(--reveal-delay, 0ms) !important;
+}
+
+body.motion-ready .reveal-init.is-revealed {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+#ShowPicture img.serc-parallax-active {
+  transform: translate3d(0, var(--serc-parallax-offset, 0px), 0);
+  will-change: transform;
+  transition: transform 180ms linear;
+}
+
+img.img-lazy-pending {
+  opacity: 0.001 !important;
+  transform: translate3d(0, var(--motion-image-shift), 0);
+  transition:
+    opacity var(--motion-duration-fast) var(--motion-ease-standard),
+    transform var(--motion-duration-fast) var(--motion-ease-standard) !important;
+}
+
+img.img-lazy-loaded {
+  opacity: 1 !important;
+  transform: none;
+}
+
+body.motion-reduced .reveal-init,
+body.motion-reduced .reveal-init.is-revealed {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+
+body.motion-reduced #ShowPicture img.serc-parallax-active {
+  transform: none !important;
+  transition: none !important;
+}
+
+body.motion-reduced img.img-lazy-pending,
+body.motion-reduced img.img-lazy-loaded {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+@media (max-width: 991.98px) {
+  #student_list .main-title,
+  body.route-about #Introduction .features-box > h2,
+  .route-page-title {
+    font-size: 28px !important;
+  }
+
+  .route-page-title::before,
+  #student_list .main-title::before,
+  body.route-about #Introduction .features-box > h2::before {
+    top: -24px;
+    left: 0 !important;
+    font-size: clamp(44px, 16vw, 82px) !important;
+  }
+
+  #culture_list .image-grid {
+    columns: 2 !important;
+    column-gap: 16px !important;
+  }
+
+  #achievement_paper .el-table .cell,
+  #achievement_patent .el-table .cell,
+  #achievement_book .el-table .cell,
+  #achievement_copyright .el-table .cell {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+
+  #achievement_paper .el-tag,
+  #achievement_patent .el-tag,
+  #achievement_book .el-tag,
+  #achievement_copyright .el-tag {
+    font-size: 11px !important;
+    padding: 0 5px !important;
+  }
+
+  #achievement_paper.section,
+  #achievement_patent.section,
+  #achievement_book.section,
+  #achievement_copyright.section {
+    overflow-x: visible !important;
+  }
+
+  #achievement_paper #paper,
+  #achievement_patent #paper,
+  #achievement_book #paper,
+  #achievement_copyright #paper {
+    overflow-x: auto !important;
+  }
+
+  #achievement_paper .el-table,
+  #achievement_patent .el-table,
+  #achievement_book .el-table,
+  #achievement_copyright .el-table,
+  #achievement_paper .el-table__header-wrapper table,
+  #achievement_paper .el-table__body-wrapper table,
+  #achievement_patent .el-table__header-wrapper table,
+  #achievement_patent .el-table__body-wrapper table,
+  #achievement_book .el-table__header-wrapper table,
+  #achievement_book .el-table__body-wrapper table,
+  #achievement_copyright .el-table__header-wrapper table,
+  #achievement_copyright .el-table__body-wrapper table {
+    min-width: 720px !important;
+    width: 720px !important;
+    table-layout: auto !important;
+  }
+
+  #achievement_paper .el-table .cell,
+  #achievement_patent .el-table .cell,
+  #achievement_book .el-table .cell,
+  #achievement_copyright .el-table .cell {
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  #achievement_paper .el-table th:nth-child(2) .cell,
+  #achievement_paper .el-table td:nth-child(2) .cell,
+  #achievement_patent .el-table th:nth-child(2) .cell,
+  #achievement_patent .el-table td:nth-child(2) .cell,
+  #achievement_patent .el-table th:nth-child(3) .cell,
+  #achievement_patent .el-table td:nth-child(3) .cell,
+  #achievement_copyright .el-table th:nth-child(2) .cell,
+  #achievement_copyright .el-table td:nth-child(2) .cell {
+    white-space: normal !important;
+    min-width: 220px !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body.motion-ready .reveal-init {
+    transform: translate3d(0, var(--motion-reveal-y-mobile), 0) !important;
+    transition-duration: 380ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  #student_list .main-title,
+  body.route-about #Introduction .features-box > h2,
+  .route-page-title {
+    font-size: 24px !important;
+    padding-top: 16px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .route-page-title::before,
+  #student_list .main-title::before,
+  body.route-about #Introduction .features-box > h2::before {
+    top: -14px;
+    left: 0 !important;
+    font-size: clamp(30px, 14vw, 44px) !important;
+    color: rgba(18, 18, 18, 0.05) !important;
+  }
+
+  #culture_list .image-grid {
+    columns: 1 !important;
+    column-gap: 14px !important;
+  }
+
+  #culture_list .image-item.parent {
+    margin-bottom: 14px !important;
+  }
+
+  #tool_fuzzer .el-card,
+  #tool_vulDetector .el-card {
+    margin: 20px auto !important;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .route-page-title::before,
+  #student_list .main-title::before,
+  body.route-about #Introduction .features-box > h2::before {
+    content: none !important;
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.motion-ready .reveal-init,
+  body.motion-ready .reveal-init.is-revealed,
+  #ShowPicture img.serc-parallax-active,
+  img.img-lazy-pending,
+  img.img-lazy-loaded {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

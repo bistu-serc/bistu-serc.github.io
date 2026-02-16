@@ -1,0 +1,67 @@
+/*
+ * Bridge layer: neutralize legacy theme colors/gradients/shadows.
+ * Keep only structural behavior from vendor/legacy styles.
+ */
+
+.section,
+.section.bg-light,
+.bg-light,
+.bg-overlay,
+.bg-overlay-light,
+.bg-home,
+.bg-get-started,
+.bg-custom,
+.bg-purple,
+.bg-purple-dark,
+.bg-purple-light,
+.row-bg,
+.footer,
+.footer-alt,
+.footer-alt-border,
+.navbar-custom,
+.navbar-white,
+.sticky,
+.sticky-dark,
+.el-card,
+.el-descriptions__body,
+.el-tabs__content,
+.el-tabs__nav-wrap::after,
+.services-box,
+.pricing-box,
+.blog-box,
+.team-box,
+.year-block,
+.card {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.features-item-list li:before,
+.process-left-icon-1 i,
+.process-left-icon-2 i,
+.text-custom,
+.play-btn,
+.social-icon:hover i,
+.el-link--primary,
+.el-tabs__active-bar,
+.el-pagination.is-background .el-pager li.active {
+  background-color: transparent !important;
+}
+
+.navbar-custom,
+.is-sticky .navbar-custom,
+.navbar-custom.navbar-white,
+.navbar-white,
+.navbar-collapse {
+  background-color: #fff !important;
+  background-image: none !important;
+}
+
+.footer,
+.footer-alt,
+.footer-alt-border {
+  background-color: #fff !important;
+  background-image: none !important;
+}

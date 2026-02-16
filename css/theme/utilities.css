@@ -1,0 +1,23 @@
+/* Utility and micro-interaction layer */
+
+.footer-list {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.footer-list li {
+  margin: 0 0 3px 0 !important;
+}
+
+.footer-list li a {
+  padding-top: 0 !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent !important;
+  transition: color 0.2s ease, border-color 0.2s ease !important;
+}
+
+.footer-list li a:hover {
+  color: var(--ink-900) !important;
+  border-bottom-color: var(--ink-300) !important;
+}

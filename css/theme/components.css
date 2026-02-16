@@ -1,0 +1,565 @@
+/* Reusable components */
+
+.navbar-custom .navbar-nav li a,
+.nav-link {
+  color: var(--ink-700) !important;
+  font-family: var(--font-body) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  text-decoration: none !important;
+}
+
+.navbar-custom.navbar-white .navbar-nav li.active a,
+.navbar-custom.navbar-white .navbar-nav li a:hover,
+.navbar-custom.navbar-white .navbar-nav li a:focus,
+.navbar-custom.navbar-white .navbar-nav li a:active {
+  color: var(--ink-900) !important;
+}
+
+#mySidenav .serc-lang-switch-item {
+  margin-left: 10px !important;
+}
+
+#navbar #mySidenav {
+  width: 100% !important;
+  margin-left: 0 !important;
+  padding-left: 50px !important;
+}
+
+#navbar #mySidenav .serc-lang-switch-item {
+  margin-left: auto !important;
+}
+
+#mySidenav .serc-lang-switch {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 44px !important;
+  height: 30px !important;
+  padding: 0 10px !important;
+  border: 1px solid var(--ink-300) !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  color: var(--ink-700) !important;
+  font-family: var(--font-body) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+}
+
+#mySidenav .serc-lang-switch:hover,
+#mySidenav .serc-lang-switch:focus {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: var(--ink-900) !important;
+  border-color: var(--ink-500) !important;
+  outline: none !important;
+}
+
+body.lang-en #navbar .serc-brand-title {
+  font-size: 18px !important;
+  letter-spacing: 0.01em !important;
+}
+
+@media (max-width: 991.98px) {
+  .nav-link,
+  .navbar-custom .navbar-nav li a {
+    font-size: 15px !important;
+  }
+
+  #navbar #mySidenav {
+    width: 100% !important;
+    padding-left: var(--container-pad-sm) !important;
+    padding-right: var(--container-pad-sm) !important;
+  }
+
+  #mySidenav .serc-lang-switch-item {
+    margin-left: 0 !important;
+  }
+}
+
+.btn-custom {
+  background-color: transparent !important;
+  border-color: var(--ink-700) !important;
+  color: var(--ink-700) !important;
+}
+
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active,
+.open > .dropdown-toggle.btn-custom {
+  background-color: #2a2a2a !important;
+  border-color: #2a2a2a !important;
+}
+
+.btn-outline-custom {
+  color: var(--ink-700) !important;
+  border-color: var(--ink-500) !important;
+}
+
+.btn-outline-custom:hover {
+  color: #ffffff !important;
+  background-color: var(--ink-700) !important;
+  border-color: var(--ink-700) !important;
+}
+
+.text-custom,
+.play-btn,
+.social-icon:hover i,
+.el-link--primary {
+  color: var(--ink-900) !important;
+}
+
+.main-title,
+.degree-title,
+.student_name,
+.student-name {
+  color: var(--ink-900) !important;
+}
+
+.degree-title {
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+.year-title {
+  background: transparent !important;
+  color: var(--ink-900) !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+.student-name:hover {
+  color: var(--ink-700) !important;
+  border-bottom-color: var(--ink-300) !important;
+}
+
+#student_list .degree-title {
+  font-size: 22px !important;
+  line-height: 1.45 !important;
+  margin-bottom: 12px !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+#student_list .year-title {
+  display: block !important;
+  font-size: 14px !important;
+  line-height: 1.45 !important;
+  font-weight: 500 !important;
+  color: var(--ink-500) !important;
+  letter-spacing: 0.02em !important;
+  margin-bottom: 8px !important;
+}
+
+#student_list .degree-section {
+  margin-bottom: 40px !important;
+}
+
+#student_list .degree-section:last-child {
+  margin-bottom: 0 !important;
+}
+
+#student_list .year-block {
+  margin: 0 0 20px 0 !important;
+  padding: 0 0 4px !important;
+}
+
+#student_list .year-block:last-child {
+  margin-bottom: 0 !important;
+}
+
+#student_list .student-list {
+  margin: 0 !important;
+  padding-left: 0 !important;
+  list-style: none !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 12px 20px !important;
+}
+
+#student_list .student-list li {
+  margin: 0 !important;
+  padding-top: 18px !important;
+  border-top: 1px solid var(--ink-300) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+  min-height: 94px !important;
+}
+
+#student_list .student-name {
+  display: block !important;
+  width: 100% !important;
+  font-size: 17px !important;
+  line-height: 1.45 !important;
+  font-weight: 600 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+
+#student_list #team_mentor_section {
+  margin-bottom: 26px !important;
+}
+
+#student_list #team_mentor_section .mentor-list {
+  margin-top: 8px !important;
+}
+
+#student_list #team_mentor_section .mentor-title {
+  color: var(--ink-500) !important;
+  font-size: 0.88em !important;
+  font-weight: 400 !important;
+}
+
+#student_list #team_mentor_section .mentor-list li {
+  min-height: 116px !important;
+}
+
+#student_list .team-item-meta,
+#student_list .team-student-direction {
+  width: 100% !important;
+  margin: 0 !important;
+  color: var(--ink-500) !important;
+  font-family: var(--font-body) !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+#student_list .mentor-summary {
+  color: var(--ink-700) !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 3 !important;
+  overflow: hidden !important;
+}
+
+/* Tables and data widgets */
+.el-table th,
+.el-table td,
+.el-table tr,
+.el-table .cell,
+.el-descriptions-item__label,
+.el-descriptions-item__content,
+.el-statistic .con {
+  color: var(--ink-700) !important;
+  font-family: var(--font-body) !important;
+}
+
+.el-table th,
+.el-descriptions__title,
+.el-result__title p,
+.el-tabs__item.is-active,
+.el-menu-item.is-active,
+.el-link.el-link--primary {
+  color: var(--ink-900) !important;
+}
+
+.el-divider__text {
+  color: var(--ink-700) !important;
+  font-family: var(--font-body) !important;
+}
+
+.el-table,
+.el-table::before,
+.el-table tr,
+.el-table th,
+.el-table td,
+.el-table__header-wrapper,
+.el-table__body-wrapper {
+  background: transparent !important;
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Home section unit consistency */
+#teacher .row.margin-t-50 > [class*="col-"],
+#direction .row.margin-t-50 > [class*="col-"],
+#research_show .row.margin-t-30 > [class*="col-"],
+#project .row > .col-lg-4.margin-t-20 {
+  display: flex !important;
+}
+
+#teacher .row.margin-t-50 > [class*="col-"] > .testimonial-box,
+#direction .row.margin-t-50 > [class*="col-"] > .pricing-box,
+#research_show .row.margin-t-30 > [class*="col-"] > .services-box,
+#project .row > .col-lg-4.margin-t-20 > .services-box {
+  width: 100% !important;
+  height: 100% !important;
+  margin-top: 0 !important;
+  padding: 18px 0 0 !important;
+  border-top: 1px solid var(--ink-300) !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#direction .row.margin-t-50 > [class*="col-"] > .pricing-box {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+#teacher .testimonial-box h4,
+#direction .pricing-box > h3,
+#research_show .services-box .el-card h3,
+#project .services-box h4 {
+  color: var(--ink-900) !important;
+  font-family: var(--font-display) !important;
+  font-size: 21px !important;
+  line-height: 1.45 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+#teacher .testimonial-box h4,
+#direction .pricing-box > h3,
+#research_show .services-box .el-card h3 {
+  margin: 0 0 12px 0 !important;
+}
+
+#project .services-box h4 {
+  margin: 0 0 8px 0 !important;
+}
+
+#teacher .testimonial-box p,
+#direction .pricing-box p,
+#research_show .services-box .el-card p,
+#project .services-box p {
+  color: var(--ink-700) !important;
+  font-family: var(--font-body) !important;
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+}
+
+#direction .pricing-box .plan-features {
+  margin-top: 10px !important;
+  display: grid !important;
+  row-gap: 6px !important;
+}
+
+#direction .pricing-box .plan-features p {
+  margin: 0 !important;
+  padding-top: 0 !important;
+}
+
+#research_show .services-box .el-card {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#research_show .services-box .el-card__body {
+  padding: 0 !important;
+}
+
+#research_show .row.margin-t-30 {
+  margin-bottom: 34px !important;
+}
+
+#project .services-box .media {
+  align-items: flex-start !important;
+  gap: 12px !important;
+}
+
+#project .services-box .media-body {
+  margin-left: 0 !important;
+}
+
+#project .services-box i {
+  flex: 0 0 20px !important;
+  font-size: 20px !important;
+  line-height: 1.2 !important;
+  margin-top: 2px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Teacher avatars */
+#teacher .testimonial-box {
+  border-top: 1px solid var(--ink-300) !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+#teacher .testimonial-decs {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+#teacher .testimonial-box .img-thumbnail,
+#teacher .testimonial-box img.img-thumbnail {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+#teacher .testimonial-box img,
+#teacher .testimonial-box img.img-thumbnail {
+  width: 180px !important;
+  height: 180px !important;
+  aspect-ratio: 1 / 1;
+  border-radius: 50% !important;
+  object-fit: contain !important;
+  object-position: center top !important;
+  background-color: transparent !important;
+  border: 1px solid var(--ink-300) !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#teacher .testimonial-decs p {
+  font-style: normal !important;
+}
+
+/* Footer content typography */
+.footer .footer-contact-line {
+  display: grid !important;
+  grid-template-columns: 88px minmax(0, 1fr) !important;
+  column-gap: 8px !important;
+  align-items: baseline !important;
+}
+
+.footer .footer-contact-label {
+  color: var(--ink-500) !important;
+  white-space: nowrap !important;
+}
+
+.footer .footer-contact-value {
+  min-width: 0 !important;
+  word-break: break-word !important;
+}
+
+.footer .footer-contact-value a {
+  overflow-wrap: anywhere !important;
+}
+
+.footer h4,
+.footer .contact-title {
+  color: var(--ink-900) !important;
+  font-family: var(--font-body) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1.5 !important;
+  margin-bottom: 6px !important;
+}
+
+.footer .text-muted,
+.footer p,
+.footer li,
+.footer a,
+.footer .contact-detail {
+  color: var(--ink-700) !important;
+  font-family: var(--font-body) !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+}
+
+.footer .text-muted.margin-t-20 {
+  margin-top: 4px !important;
+}
+
+.copy-rights {
+  margin: 0 !important;
+  color: var(--ink-500) !important;
+  font-family: var(--font-body) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.01em !important;
+}
+
+@media (max-width: 991.98px) {
+  .footer .footer-contact-line {
+    grid-template-columns: 82px minmax(0, 1fr) !important;
+  }
+
+  #teacher .row.margin-t-50 > [class*="col-"] > .testimonial-box,
+  #direction .row.margin-t-50 > [class*="col-"] > .pricing-box,
+  #research_show .row.margin-t-30 > [class*="col-"] > .services-box,
+  #project .row > .col-lg-4.margin-t-20 > .services-box {
+    padding-top: 14px !important;
+  }
+
+  #research_show .row.margin-t-30 {
+    margin-bottom: 24px !important;
+  }
+
+  #teacher .testimonial-box h4,
+  #direction .pricing-box > h3,
+  #research_show .services-box .el-card h3,
+  #project .services-box h4 {
+    font-size: 20px !important;
+  }
+
+  #student_list .student-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px 16px !important;
+  }
+
+  #student_list .student-list li {
+    padding-top: 14px !important;
+    min-height: 86px !important;
+  }
+
+  #student_list #team_mentor_section .mentor-list li {
+    min-height: 108px !important;
+  }
+
+  #student_list .student-name {
+    font-size: 16px !important;
+  }
+
+  #student_list .team-item-meta,
+  #student_list .team-student-direction {
+    font-size: 13px !important;
+  }
+
+  #teacher .testimonial-box img,
+  #teacher .testimonial-box img.img-thumbnail {
+    width: 148px !important;
+    height: 148px !important;
+  }
+}
+
+@media (max-width: 1199.98px) and (min-width: 992px) {
+  #student_list .student-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .footer .footer-contact-line {
+    grid-template-columns: 74px minmax(0, 1fr) !important;
+    column-gap: 6px !important;
+  }
+
+  #student_list .student-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  #student_list .student-list li,
+  #student_list #team_mentor_section .mentor-list li {
+    min-height: 0 !important;
+  }
+}
