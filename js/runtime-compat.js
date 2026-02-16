@@ -64,6 +64,7 @@
       home: {
         news: "科研动态",
         team: "导师团队",
+        research: "科研成果",
         project: "科研项目",
         summary: HOME_INTRO_SUMMARY_ZH
       },
@@ -115,7 +116,8 @@
       },
       home: {
         news: "Research News",
-        team: "People",
+        team: "Faculty Team",
+        research: "Research Outcomes",
         project: "Projects",
         summary: HOME_INTRO_SUMMARY_EN
       },
@@ -138,6 +140,8 @@
   };
   var currentLang = resolveInitialLanguage();
   var STATIC_TEXT_PAIRS = [
+    ["导师团队", "Faculty Team"],
+    ["科研成果", "Research Outcomes"],
     ["动态详情", "News Detail"],
     ["导师信息", "Faculty Profile"],
     ["学生信息", "Student Profile"],
@@ -245,6 +249,21 @@
     "DPFuzz": "DPFuzz improves bug-finding effectiveness by learning defect-proneness from code features and prioritizing fuzzing resources on modules with higher predicted defect likelihood.",
     "BaSFuzz": "BaSFuzz reduces redundant mutations on similar seeds by computing weighted byte-level and structural similarity scores, then prioritizing less similar seeds for mutation.",
     "SDA-FirmFuzz": "SDA-FirmFuzz performs differential seed analysis before fuzzing embedded firmware and executes more diverse seeds first, improving path coverage and crash triggering potential."
+  };
+  var NEWS_TITLE_TAIL_TRANSLATIONS_EN = {
+    "智能合约安全漏洞检测研究进展": "Research Progress in Smart Contract Security Vulnerability Detection",
+    "基于冗余覆盖信息约简的软件缺陷定位方法": "Software Fault Localization via Redundant Coverage Information Reduction",
+    "覆盖率制导的灰盒模糊测试研究综述": "A Survey of Coverage-Guided Gray-box Fuzz Testing",
+    "状态转换图制导的ARP错误检测方法": "State-Transition-Graph-Guided ARP Error Detection Method",
+    "IADT:基于解释分析的深度神经网络差分测试": "IADT: Differential Testing of Deep Neural Networks via Interpretation Analysis",
+    "SCG-Detector:基于图注意力网络的智能合约漏洞检测方法": "SCG-Detector: Smart Contract Vulnerability Detection with Graph Attention Networks",
+    "GITG:面向Gitee平台的issue标题自动生成方法": "GITG: Automatic Issue Title Generation for the Gitee Platform",
+    "基于目标制导符号执行的智能合约安全漏洞检测方法": "Smart Contract Security Vulnerability Detection via Target-Guided Symbolic Execution",
+    "融合多类特征的语句级缺陷定位方法": "Statement-Level Fault Localization by Fusing Multiple Feature Types",
+    "QAAttack:基于文本特征分析的问答系统模糊测试方法": "QAAttack: Fuzz Testing for Question Answering Systems Based on Text Feature Analysis",
+    "嵌入式设备固件模糊测试技术综述": "A Survey of Fuzz Testing Techniques for Embedded Device Firmware",
+    "基于协同注意力解释的视觉语言预训练模型多模态攻击方法": "Multimodal Attacks on Vision-Language Pretrained Models via Collaborative Attention Explanation",
+    "基于大语言模型的数据库管理系统模糊测试方法": "LLM-Based Fuzz Testing Method for Database Management Systems"
   };
   var STATIC_ZH_TO_EN = {};
   var STATIC_EN_TO_ZH = {};
@@ -830,17 +849,34 @@
   function normalizeNewsTitleEn(rawTitle, index) {
     var title = normalizeText(rawTitle);
     if (!title) {
-      return "Research Update #" + String(index + 1);
+      return "Research Update";
     }
     if (!containsCJK(title)) {
       return title;
     }
+
     var chunks = title.split(/——|—|--/);
     var tail = normalizeText(chunks[chunks.length - 1] || "");
+    var normalizedTailKey = tail.replace(/：/g, ":");
+    var mappedTail = NEWS_TITLE_TAIL_TRANSLATIONS_EN[normalizedTailKey] || NEWS_TITLE_TAIL_TRANSLATIONS_EN[tail] || "";
+    if (mappedTail) {
+      return "Research Update: " + mappedTail;
+    }
+
     if (tail && !containsCJK(tail)) {
       return "Research Update: " + tail;
     }
-    return "Research Update #" + String(index + 1);
+
+    var acronymMatch = normalizedTailKey.match(/^([A-Za-z][A-Za-z0-9+_.-]{1,60})\s*:/);
+    if (acronymMatch && acronymMatch[1]) {
+      return "Research Update: " + acronymMatch[1];
+    }
+
+    if (tail) {
+      return "Research Update: " + tail;
+    }
+
+    return "Research Update";
   }
 
   function localizeNewsTextBlock(text, index) {
@@ -2892,10 +2928,143 @@
       teacherTitle.textContent = home.team;
     }
 
+    var researchTitle = document.querySelector("#research_show .section-title");
+    if (researchTitle) {
+      researchTitle.textContent = home.research || (isEnglish() ? "Research Outcomes" : "科研成果");
+    }
+
     var projectTitle = document.querySelector("#project .section-title");
     if (projectTitle) {
       projectTitle.textContent = home.project;
     }
+  }
+
+  function decodeTeacherNameFromHref(href) {
+    var raw = String(href || "");
+    if (!raw) {
+      return "";
+    }
+    var match = raw.match(/[?&]name=([^&#]+)/i);
+    if (!match || !match[1]) {
+      return "";
+    }
+    try {
+      return normalizeText(decodeURIComponent(match[1]));
+    } catch (error) {
+      return normalizeText(match[1]);
+    }
+  }
+
+  function localizeHomeTeacherCards() {
+    if (!isEnglish() || getCurrentHash() !== "#/") {
+      return;
+    }
+
+    var teacherSection = document.querySelector("#teacher");
+    if (!teacherSection) {
+      return;
+    }
+
+    var cards = teacherSection.querySelectorAll
+      ? teacherSection.querySelectorAll(".testimonial-box")
+      : [];
+    if (!cards || !cards.length) {
+      return;
+    }
+
+    readCsv("data/teachers.csv").then(function (teachers) {
+      var list = (teachers || []).filter(isAlive);
+      if (!list.length) {
+        return;
+      }
+
+      var byName = {};
+      list.forEach(function (teacher) {
+        var zhName = normalizeText(teacher.name);
+        var enName = normalizeText(teacher.name_en);
+        if (zhName) {
+          byName[zhName] = teacher;
+        }
+        if (enName) {
+          byName[enName] = teacher;
+        }
+      });
+
+      Array.prototype.forEach.call(cards, function (card) {
+        if (!card || !card.querySelector) {
+          return;
+        }
+
+        var link = card.querySelector('a[href*="#/teacherInfo"]');
+        var titleNode = card.querySelector("h4");
+        var introNode = card.querySelector("p.text-muted");
+
+        var nameHint = link ? decodeTeacherNameFromHref(link.getAttribute("href")) : "";
+        if (!nameHint && titleNode) {
+          var rawTitle = normalizeText(titleNode.textContent || "");
+          if (rawTitle.indexOf("-") >= 0) {
+            nameHint = normalizeText(rawTitle.split("-")[0]);
+          } else if (rawTitle.indexOf(" - ") >= 0) {
+            nameHint = normalizeText(rawTitle.split(" - ")[0]);
+          } else {
+            nameHint = rawTitle;
+          }
+        }
+
+        var teacher = byName[nameHint] || null;
+        if (!teacher && nameHint) {
+          var normalizedHint = normalizeText(nameHint);
+          for (var i = 0; i < list.length; i += 1) {
+            var record = list[i];
+            var zh = normalizeText(record.name);
+            var en = normalizeText(record.name_en);
+            if (
+              normalizedHint === zh ||
+              normalizedHint === en ||
+              (zh && normalizedHint.indexOf(zh) >= 0) ||
+              (en && normalizedHint.indexOf(en) >= 0)
+            ) {
+              teacher = record;
+              break;
+            }
+          }
+        }
+
+        if (!teacher) {
+          return;
+        }
+
+        var displayName = normalizeText(teacher.name_en || teacher.name) || "Faculty";
+        var displayTitle = translateTitle(teacher.title) || "Faculty";
+
+        if (titleNode) {
+          var titleSpan = titleNode.querySelector("span");
+          if (!titleSpan) {
+            titleSpan = document.createElement("span");
+            titleSpan.className = "text-muted text-capitalize";
+          } else {
+            titleSpan.className = titleSpan.className || "text-muted text-capitalize";
+          }
+          titleSpan.textContent = displayTitle;
+
+          titleNode.textContent = "";
+          titleNode.appendChild(document.createTextNode(displayName + " - "));
+          titleNode.appendChild(titleSpan);
+        }
+
+        if (introNode) {
+          introNode.textContent = withEnglishTeacherIntro(teacher);
+        }
+
+        if (link) {
+          link.setAttribute("href", "#/teacherInfo?name=" + encodeURIComponent(displayName));
+        }
+
+        card.dataset.homeTeacherLocalizedLang = "en";
+      });
+    }).catch(function () {
+      /* ignore home teacher localization errors */
+    });
   }
 
   function runLayoutEnhancements(root) {
@@ -2918,6 +3087,7 @@
     normalizeTeamMentorSection();
     normalizeTeamStudentDirections();
     normalizeHomeSectionTitles();
+    localizeHomeTeacherCards();
     applyAboutRouteMode();
     syncImageViewerState();
     normalizeAboutSectionHeading();
