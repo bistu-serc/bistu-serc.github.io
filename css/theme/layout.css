@@ -169,6 +169,13 @@
   line-height: 1.1 !important;
   letter-spacing: 0 !important;
   white-space: nowrap;
+  word-break: keep-all;
+}
+
+#navbar .serc-brand-title[data-brand-layout="zh-two-line"] {
+  display: inline-block !important;
+  white-space: nowrap !important;
+  line-height: 1.1 !important;
 }
 
 #navbar #navbarCollapse {
@@ -314,6 +321,16 @@
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     max-width: 100% !important;
+  }
+
+  #navbar .serc-brand-title[data-brand-layout="zh-two-line"] {
+    font-size: 14px !important;
+    line-height: 1.14 !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    max-width: calc(100vw - 116px) !important;
   }
 
   #navbar .serc-mobile-nav-toggle {
@@ -506,6 +523,14 @@
     font-size: 14px !important;
     max-width: calc(100vw - 112px) !important;
     line-height: 1.2 !important;
+  }
+
+  #navbar .serc-brand-title[data-brand-layout="zh-two-line"] {
+    font-size: 13px !important;
+    line-height: 1.12 !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+    max-width: calc(100vw - 108px) !important;
   }
 
   #navbar #mySidenav {

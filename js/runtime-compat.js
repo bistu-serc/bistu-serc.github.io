@@ -265,6 +265,12 @@
     "基于协同注意力解释的视觉语言预训练模型多模态攻击方法": "Multimodal Attacks on Vision-Language Pretrained Models via Collaborative Attention Explanation",
     "基于大语言模型的数据库管理系统模糊测试方法": "LLM-Based Fuzz Testing Method for Database Management Systems"
   };
+  var DATA_ZH_EN_MAP =
+    typeof window !== "undefined" &&
+      window.SERC_ZH_EN_MAP &&
+      typeof window.SERC_ZH_EN_MAP === "object"
+      ? window.SERC_ZH_EN_MAP
+      : {};
   var STATIC_ZH_TO_EN = {};
   var STATIC_EN_TO_ZH = {};
 
@@ -388,10 +394,58 @@
     return isEnglish() ? STATIC_ZH_TO_EN : STATIC_EN_TO_ZH;
   }
 
+  function lookupDataMap(text) {
+    var normalized = normalizeText(text);
+    if (!normalized) {
+      return "";
+    }
+    var direct = DATA_ZH_EN_MAP[normalized];
+    if (typeof direct === "string" && normalizeText(direct)) {
+      return normalizeText(direct);
+    }
+
+    var punctuationNormalized = normalized
+      .replace(/：/g, ":")
+      .replace(/（/g, "(")
+      .replace(/）/g, ")")
+      .replace(/，/g, ",");
+
+    var fallback = DATA_ZH_EN_MAP[punctuationNormalized];
+    if (typeof fallback === "string" && normalizeText(fallback)) {
+      return normalizeText(fallback);
+    }
+    return "";
+  }
+
+  function translateByDataMap(text) {
+    if (!isEnglish()) {
+      return "";
+    }
+    return lookupDataMap(text);
+  }
+
+  function localizeStringValue(value) {
+    var text = normalizeText(value);
+    if (!text || !isEnglish() || !containsCJK(text)) {
+      return value;
+    }
+    var mapped = translateByDataMap(text);
+    if (mapped) {
+      return mapped;
+    }
+    return value;
+  }
+
   function translateStaticText(text) {
     var normalized = normalizeText(text);
     if (!normalized) {
       return "";
+    }
+    if (isEnglish()) {
+      var fromData = translateByDataMap(normalized);
+      if (fromData) {
+        return fromData;
+      }
     }
     return getStaticTextMap()[normalized] || "";
   }
@@ -408,6 +462,10 @@
     var normalized = normalizeText(direction);
     if (!isEnglish() || !normalized) {
       return normalized;
+    }
+    var mapped = translateByDataMap(normalized);
+    if (mapped) {
+      return mapped;
     }
     if (!containsCJK(normalized)) {
       return normalized;
@@ -745,6 +803,10 @@
     if (intro && !containsCJK(intro)) {
       return intro;
     }
+    var mappedIntro = translateByDataMap(intro);
+    if (mappedIntro) {
+      return mappedIntro;
+    }
     var name = normalizeText(teacher.name_en || teacher.name) || "Faculty member";
     var title = translateTitle(teacher.title) || "Faculty";
     var direction = translateDirection(teacher.direction) || "software engineering";
@@ -756,6 +818,10 @@
     if (intro && !containsCJK(intro)) {
       return intro;
     }
+    var mappedIntro = translateByDataMap(intro);
+    if (mappedIntro) {
+      return mappedIntro;
+    }
     var name = normalizeText(student.name_en || student.name) || "Graduate student";
     var direction = translateDirection(student.direction) || "software engineering";
     return name + " is a graduate student at the Software Engineering Research Center, BISTU. Research interests include " + direction + ".";
@@ -765,6 +831,10 @@
     var text = normalizeText(destination);
     if (!isEnglish() || !text) {
       return text;
+    }
+    var mapped = translateByDataMap(text);
+    if (mapped) {
+      return mapped;
     }
     if (!containsCJK(text)) {
       return text;
@@ -782,9 +852,13 @@
     }
     var teacher = clonePlainObject(record);
     teacher.name = normalizeText(record.name_en || record.name);
+    if (!teacher.name || containsCJK(teacher.name)) {
+      teacher.name = localizeStringValue(record.name) || teacher.name;
+    }
     teacher.title = translateTitle(record.title);
     teacher.direction = translateDirection(record.direction);
     teacher.introduction = withEnglishTeacherIntro(record);
+    teacher.email = normalizeText(record.email || teacher.email);
     return teacher;
   }
 
@@ -794,6 +868,9 @@
     }
     var student = clonePlainObject(record);
     student.name = normalizeText(record.name_en || record.name);
+    if (!student.name || containsCJK(student.name)) {
+      student.name = localizeStringValue(record.name) || student.name;
+    }
     student.direction = translateDirection(record.direction);
     student.introduction = withEnglishStudentIntro(record);
     student.destination = localizeDestination(record.destination);
@@ -822,6 +899,8 @@
       return record;
     }
     var patent = clonePlainObject(record);
+    patent.author = localizeStringValue(patent.author);
+    patent.title = localizeStringValue(patent.title);
     if (patent.authorized === "1" || patent.authorized === 1 || patent.authorized === true) {
       patent.authorizedLabel = "Granted";
     } else {
@@ -834,7 +913,19 @@
     if (!record || !isEnglish()) {
       return record;
     }
-    return clonePlainObject(record);
+    var paper = clonePlainObject(record);
+    paper.author = localizeStringValue(paper.author);
+    paper.introduction = localizeStringValue(paper.introduction);
+    return paper;
+  }
+
+  function localizeCopyrightRecord(record) {
+    if (!record || !isEnglish()) {
+      return record;
+    }
+    var item = clonePlainObject(record);
+    item.title = localizeStringValue(item.title);
+    return item;
   }
 
   function localizeResearchShowPayload(payload) {
@@ -853,6 +944,10 @@
     }
     if (!containsCJK(title)) {
       return title;
+    }
+    var mappedTitle = translateByDataMap(title);
+    if (mappedTitle) {
+      return mappedTitle;
     }
 
     var chunks = title.split(/——|—|--/);
@@ -883,6 +978,10 @@
     var normalized = normalizeText(text);
     if (!normalized || !containsCJK(normalized)) {
       return normalized;
+    }
+    var mapped = translateByDataMap(normalized);
+    if (mapped) {
+      return mapped;
     }
     var fallbacks = [
       "This update reports recent research progress from the SERC team.",
@@ -925,6 +1024,10 @@
     result.fuzzers = fuzzers.map(function (group) {
       var localGroup = clonePlainObject(group);
       var type = normalizeText(group.type);
+      var mappedType = translateByDataMap(type);
+      if (mappedType) {
+        localGroup.type = mappedType;
+      } else
       if (type.indexOf("定向模糊测试") !== -1) {
         localGroup.type = "Directed Gray-box Fuzzing (DGF)";
       } else if (type.indexOf("覆盖率引导的模糊测试") !== -1) {
@@ -935,8 +1038,12 @@
       localGroup.tools = Array.isArray(group.tools) ? group.tools.map(function (tool) {
         var localTool = clonePlainObject(tool);
         var name = normalizeText(tool.name);
-        localTool.name = name || tool.name;
-        localTool.description = TOOLS_DESCRIPTION_EN[name] || localizeNewsTextBlock(tool.description, 0);
+        var mappedName = translateByDataMap(name);
+        localTool.name = mappedName || name || tool.name;
+        localTool.description =
+          TOOLS_DESCRIPTION_EN[name] ||
+          translateByDataMap(tool.description) ||
+          localizeNewsTextBlock(tool.description, 0);
         return localTool;
       }) : [];
       return localGroup;
@@ -971,6 +1078,9 @@
     }
     if (path === "/findResearchShow") {
       return localizeResearchShowPayload(payload);
+    }
+    if (path === "/copyright/findAll") {
+      return (payload || []).map(localizeCopyrightRecord);
     }
     return payload;
   }
@@ -2013,7 +2123,13 @@
       logo.setAttribute("alt", getLabel("brandAlt", "BISTU Logo"));
     }
     if (title) {
-      title.textContent = getLabel("brandTitle", "BISTU Software Engineering Research Center");
+      if (isEnglish()) {
+        title.textContent = getLabel("brandTitle", "BISTU Software Engineering Research Center");
+        title.dataset.brandLayout = "single-line";
+      } else {
+        title.innerHTML = "北京信息科技大学<wbr>软件工程研究中心";
+        title.dataset.brandLayout = "zh-two-line";
+      }
     }
   }
 
@@ -2837,6 +2953,22 @@
       node.textContent = text;
     });
 
+    var paginationTotals = document.querySelectorAll
+      ? document.querySelectorAll(".el-pagination__total")
+      : [];
+    Array.prototype.forEach.call(paginationTotals, function (node) {
+      var text = normalizeText(node.textContent || "");
+      if (!text) {
+        return;
+      }
+      if (isEnglish()) {
+        text = text.replace(/^共\s*(\d+)\s*条记录$/, "$1 records total");
+      } else {
+        text = text.replace(/^(\d+)\s*records\s*total$/i, "共 $1 条记录");
+      }
+      node.textContent = text;
+    });
+
   }
 
   function localizeStaticTextNodes(root) {
@@ -2845,8 +2977,8 @@
       ? scope.querySelectorAll(
         ".section h1, .section h2, .section h3, .section h4, .section h5, .section h6," +
         ".section p, .section span, .section b, .section .el-tag, .section .el-form-item__label," +
-        ".section .el-table th .cell, .section .el-divider__text, .section .el-checkbox-button span, .section .el-tabs__item," +
-        ".el-tag, .el-form-item__label, .el-table th .cell, .el-divider__text, .el-checkbox-button span, .el-tabs__item," +
+        ".section .el-table th .cell, .section .el-table td .cell, .section .el-divider__text, .section .el-checkbox-button span, .section .el-tabs__item," +
+        ".el-tag, .el-form-item__label, .el-table th .cell, .el-table td .cell, .el-divider__text, .el-checkbox-button span, .el-tabs__item," +
         "#student_info span, #student_info .el-page-header__content"
       )
       : [];
@@ -2860,9 +2992,22 @@
       if (!text) {
         return;
       }
+
+      if (isEnglish()) {
+        text = text.replace(/^工具名称[:：]\s*/, "Tool Name: ");
+        text = text.replace(/^工具介绍[:：]\s*/, "Description: ");
+        text = text.replace(/^共\s*(\d+)\s*条记录$/, "$1 records total");
+      } else {
+        text = text.replace(/^Tool Name:\s*/i, "工具名称：");
+        text = text.replace(/^Description:\s*/i, "工具介绍：");
+        text = text.replace(/^(\d+)\s*records\s*total$/i, "共 $1 条记录");
+      }
+
       var translated = translateStaticText(text);
       if (translated && translated !== text) {
         node.textContent = translated;
+      } else if (text !== normalizeText(node.textContent || "")) {
+        node.textContent = text;
       }
     });
   }
