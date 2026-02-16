@@ -508,24 +508,80 @@
     });
   }
 
+  function alignFooterContactLine(line) {
+    if (!line || line.nodeType !== 1 || line.dataset.footerContactAligned === "1") {
+      return;
+    }
+
+    var leadingText = "";
+    if (line.firstChild && line.firstChild.nodeType === 3) {
+      leadingText = line.firstChild.nodeValue || "";
+    } else {
+      leadingText = line.textContent || "";
+    }
+
+    var matched = String(leadingText).match(/^\s*([^：:]{1,16})[：:]\s*(.*)$/);
+    if (!matched) {
+      var whole = String(line.textContent || "").trim();
+      matched = whole.match(/^([^：:]{1,16})[：:]\s*(.+)$/);
+      if (!matched) {
+        return;
+      }
+      line.textContent = matched[2];
+    } else if (line.firstChild && line.firstChild.nodeType === 3) {
+      line.firstChild.nodeValue = matched[2];
+    }
+
+    var label = document.createElement("span");
+    label.className = "footer-contact-label";
+    label.textContent = String(matched[1] || "").trim() + "：";
+
+    var value = document.createElement("span");
+    value.className = "footer-contact-value";
+
+    while (line.firstChild) {
+      value.appendChild(line.firstChild);
+    }
+
+    line.classList.add("footer-contact-line");
+    line.appendChild(label);
+    line.appendChild(value);
+    line.dataset.footerContactAligned = "1";
+  }
+
+  function optimizeFooterContactLayout(root) {
+    var scope = root && root.querySelectorAll ? root : document;
+    var contactLines = scope.querySelectorAll
+      ? scope.querySelectorAll(".footer .col-lg-4.margin-t-20:last-child .text-muted.margin-t-20 p")
+      : [];
+
+    Array.prototype.forEach.call(contactLines, function (line) {
+      alignFooterContactLine(line);
+    });
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
       optimizeImages(document);
       optimizeCultureRouteImages(document);
+      optimizeFooterContactLayout(document);
     });
   } else {
     optimizeImages(document);
     optimizeCultureRouteImages(document);
+    optimizeFooterContactLayout(document);
   }
 
   window.addEventListener("load", function () {
     optimizeImages(document);
     optimizeCultureRouteImages(document);
+    optimizeFooterContactLayout(document);
   });
 
   window.addEventListener("hashchange", function () {
     optimizeImages(document);
     optimizeCultureRouteImages(document);
+    optimizeFooterContactLayout(document);
   });
 
   if (typeof MutationObserver !== "undefined") {
@@ -538,9 +594,11 @@
           if (node.tagName && node.tagName.toLowerCase() === "img") {
             optimizeImages(node.parentNode || document);
             optimizeCultureRouteImages(document);
+            optimizeFooterContactLayout(document);
           } else if (node.querySelectorAll) {
             optimizeImages(node);
             optimizeCultureRouteImages(document);
+            optimizeFooterContactLayout(document);
           }
         });
       });
