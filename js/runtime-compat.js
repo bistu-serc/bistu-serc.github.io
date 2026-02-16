@@ -2971,6 +2971,50 @@
 
   }
 
+  function coerceNumber(value) {
+    var num = Number(value);
+    return isFinite(num) ? num : 0;
+  }
+
+  function syncHomeResearchMetricNumbers() {
+    if (getCurrentHash() !== "#/") {
+      return;
+    }
+
+    var metrics = document.querySelectorAll ? document.querySelectorAll("#research_show h3") : [];
+    if (!metrics || metrics.length < 3) {
+      return;
+    }
+
+    buildResearchShowPayload().then(function (payload) {
+      var typeCount = payload && payload.type_count ? payload.type_count : {};
+      var conferenceCount = coerceNumber(typeCount.Conference || typeCount.conference);
+      var journalCount = coerceNumber(typeCount.Journal || typeCount.journal);
+
+      var patent = payload && payload.patent ? payload.patent : {};
+      var authorizedCount = coerceNumber(patent.authorized || patent.Authorized);
+      var unauthorizedCount = coerceNumber(
+        patent.unauthorized || patent.UnAuthorized || patent.unAuthorized
+      );
+
+      var copyrightCount = coerceNumber(
+        payload && (payload.copyright_num || payload.copyrightNum)
+      );
+
+      if (isEnglish()) {
+        metrics[0].textContent = "Publications: " + (conferenceCount + journalCount);
+        metrics[1].textContent = "Patent Applications: " + (authorizedCount + unauthorizedCount);
+        metrics[2].textContent = "Software Copyright Applications: " + copyrightCount;
+      } else {
+        metrics[0].textContent = "发表论文：" + (conferenceCount + journalCount);
+        metrics[1].textContent = "提交专利：" + (authorizedCount + unauthorizedCount);
+        metrics[2].textContent = "申请软著：" + copyrightCount;
+      }
+    }).catch(function () {
+      /* keep original texts when data is unavailable */
+    });
+  }
+
   function localizeStaticTextNodes(root) {
     var scope = root && root.querySelectorAll ? root : document;
     var candidates = scope.querySelectorAll
@@ -3240,6 +3284,7 @@
     localizeAboutNarrative();
     localizeYearTitles();
     localizeMetricTexts();
+    syncHomeResearchMetricNumbers();
     localizeStaticTextNodes(document);
     syncDecorativePageTitleText();
     syncNavActiveState();
