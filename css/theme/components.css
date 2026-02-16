@@ -432,12 +432,11 @@ body.lang-en #navbar .serc-brand-title {
   height: 100% !important;
   aspect-ratio: 1 / 1 !important;
   border-radius: 0 !important;
-  object-fit: cover !important;
-  object-position: center 50% !important;
+  object-fit: contain !important;
+  object-position: center top !important;
   position: relative !important;
   top: 18px !important;
-  transform: scale(1.08) !important;
-  transform-origin: center top !important;
+  transform: none !important;
   background-color: transparent !important;
   border: none !important;
   box-sizing: border-box !important;
