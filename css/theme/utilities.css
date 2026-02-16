@@ -1,4 +1,4 @@
-/* Utility and micro-interaction layer */
+/* Utility and unified hover-interaction layer */
 
 .footer-list {
   margin: 0 !important;
@@ -9,15 +9,172 @@
   margin: 0 0 3px 0 !important;
 }
 
-.footer-list li a {
-  padding-top: 0 !important;
-  display: inline-block !important;
-  text-decoration: none !important;
-  border-bottom: 1px solid transparent !important;
-  transition: color 0.2s ease, border-color 0.2s ease !important;
+#teacher .testimonial-box,
+#direction .pricing-box,
+#research_show .services-box,
+#project .services-box,
+#news .blog-box,
+#new_list .blog-box,
+#tool_fuzzer .el-card,
+#tool_vulDetector .el-card {
+  transition:
+    transform var(--hover-duration-base) var(--hover-ease-standard),
+    border-color var(--hover-duration-base) var(--hover-ease-standard),
+    box-shadow var(--hover-duration-slow) var(--hover-ease-standard) !important;
 }
 
-.footer-list li a:hover {
-  color: var(--ink-900) !important;
-  border-bottom-color: var(--ink-300) !important;
+#teacher .testimonial-decs > a[href*="#/teacherInfo"] {
+  transition:
+    border-color var(--hover-duration-base) var(--hover-ease-standard),
+    transform var(--hover-duration-base) var(--hover-ease-standard),
+    box-shadow var(--hover-duration-slow) var(--hover-ease-standard) !important;
+}
+
+#teacher .testimonial-box img,
+#teacher .testimonial-box img.img-thumbnail,
+#culture_list .image-item .el-image__inner,
+#news .blog-box img,
+#new_list .blog-box img,
+#tool_fuzzer .el-card img,
+#tool_vulDetector .el-card img,
+#about #Introduction .features-img img,
+#research_show .services-box img {
+  transform-origin: center center !important;
+  transition:
+    transform var(--hover-duration-slow) var(--hover-ease-standard),
+    filter var(--hover-duration-base) var(--hover-ease-standard) !important;
+}
+
+#news .blog-box .blog-img,
+#new_list .blog-box .blog-img,
+#about #Introduction .features-img,
+#tool_fuzzer .demo-image__preview .el-image,
+#tool_vulDetector .demo-image__preview .el-image {
+  overflow: hidden !important;
+}
+
+.navbar-custom .navbar-nav li a,
+#news .blog-box .blog-title,
+#new_list .blog-box .blog-title,
+.read-btn,
+.footer .footer-contact-value a,
+.footer-list li a,
+.el-table .cell a,
+.el-descriptions-item__content a {
+  text-decoration: none !important;
+  background-image: linear-gradient(var(--ink-500), var(--ink-500)) !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 calc(100% - 0.04em) !important;
+  background-size: 0 var(--hover-underline-thickness) !important;
+  transition:
+    color var(--hover-duration-base) var(--hover-ease-standard),
+    background-size var(--hover-duration-base) var(--hover-ease-standard),
+    opacity var(--hover-duration-base) var(--hover-ease-standard) !important;
+}
+
+.navbar-custom .navbar-nav li.active a {
+  background-size: 100% var(--hover-underline-thickness) !important;
+}
+
+#student_list .student-name,
+#student_list .mentor-name {
+  transition:
+    color var(--hover-duration-base) var(--hover-ease-standard),
+    letter-spacing var(--hover-duration-base) var(--hover-ease-standard),
+    opacity var(--hover-duration-base) var(--hover-ease-standard) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #teacher .testimonial-box:hover,
+  #direction .pricing-box:hover,
+  #research_show .services-box:hover,
+  #project .services-box:hover,
+  #news .blog-box:hover,
+  #new_list .blog-box:hover,
+  #tool_fuzzer .el-card:hover,
+  #tool_vulDetector .el-card:hover {
+    transform: translateY(var(--hover-lift-y)) !important;
+    border-top-color: var(--ink-500) !important;
+  }
+
+  #teacher .testimonial-box:hover .testimonial-decs > a[href*="#/teacherInfo"] {
+    border-color: var(--ink-500) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: var(--hover-shadow-soft) !important;
+  }
+
+  #teacher .testimonial-box:hover img,
+  #teacher .testimonial-box:hover img.img-thumbnail {
+    filter: brightness(var(--hover-image-brightness)) contrast(var(--hover-image-contrast)) !important;
+  }
+
+  #culture_list .image-item:hover .el-image__inner,
+  #news .blog-box:hover img,
+  #new_list .blog-box:hover img,
+  #tool_fuzzer .el-card:hover img,
+  #tool_vulDetector .el-card:hover img,
+  #about #Introduction .features-img:hover img,
+  #research_show .services-box:hover img {
+    transform: scale(var(--hover-image-scale)) !important;
+    filter: brightness(var(--hover-image-brightness)) contrast(var(--hover-image-contrast)) !important;
+  }
+
+  .navbar-custom .navbar-nav li a:hover,
+  .navbar-custom .navbar-nav li a:focus-visible,
+  #news .blog-box .blog-title:hover,
+  #new_list .blog-box .blog-title:hover,
+  .read-btn:hover,
+  .read-btn:focus-visible,
+  .footer .footer-contact-value a:hover,
+  .footer .footer-contact-value a:focus-visible,
+  .footer-list li a:hover,
+  .footer-list li a:focus-visible,
+  .el-table .cell a:hover,
+  .el-table .cell a:focus-visible,
+  .el-descriptions-item__content a:hover,
+  .el-descriptions-item__content a:focus-visible {
+    color: var(--ink-900) !important;
+    background-size: 100% var(--hover-underline-thickness) !important;
+  }
+
+  #student_list .student-list li:hover .student-name,
+  #student_list #team_mentor_section .mentor-list li:hover .student-name {
+    color: var(--ink-900) !important;
+    letter-spacing: 0.01em !important;
+    opacity: 0.92 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #teacher .testimonial-box,
+  #direction .pricing-box,
+  #research_show .services-box,
+  #project .services-box,
+  #news .blog-box,
+  #new_list .blog-box,
+  #tool_fuzzer .el-card,
+  #tool_vulDetector .el-card,
+  #teacher .testimonial-decs > a[href*="#/teacherInfo"],
+  #teacher .testimonial-box img,
+  #teacher .testimonial-box img.img-thumbnail,
+  #culture_list .image-item .el-image__inner,
+  #news .blog-box img,
+  #new_list .blog-box img,
+  #tool_fuzzer .el-card img,
+  #tool_vulDetector .el-card img,
+  #about #Introduction .features-img img,
+  #research_show .services-box img,
+  .navbar-custom .navbar-nav li a,
+  #news .blog-box .blog-title,
+  #new_list .blog-box .blog-title,
+  .read-btn,
+  .footer .footer-contact-value a,
+  .footer-list li a,
+  .el-table .cell a,
+  .el-descriptions-item__content a,
+  #student_list .student-name,
+  #student_list .mentor-name {
+    transition: none !important;
+    animation: none !important;
+  }
 }
