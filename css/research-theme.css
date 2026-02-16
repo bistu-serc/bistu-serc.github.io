@@ -70,6 +70,25 @@ body {
   margin-top: 28px !important;
 }
 
+/* Home hero spacing below the header divider */
+#ShowPicture.section {
+  margin-top: 92px !important;
+  padding-top: 10px !important;
+  padding-bottom: 0 !important;
+}
+
+/* Home introduction: remove "基本情况" heading and divider line */
+#Introduction .features-box > h2,
+#Introduction .features-box > hr,
+#Introduction .features-box > br {
+  display: none !important;
+}
+
+/* Home: hide visitor statistics block */
+#about.section {
+  display: none !important;
+}
+
 p,
 li,
 td,
@@ -215,8 +234,8 @@ a:focus,
 .nav-link {
   color: var(--ink-700) !important;
   font-family: var(--font-body) !important;
-  font-size: 15px !important;
-  font-weight: 500 !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
   letter-spacing: 0.01em !important;
   text-transform: none !important;
   text-decoration: none !important;
@@ -239,6 +258,52 @@ a:focus,
   opacity: 1 !important;
   border-bottom: 1px solid var(--ink-300) !important;
   box-shadow: none !important;
+}
+
+/* Header brand: square logo image + Chinese center name */
+#navbar .container {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 56px;
+}
+
+#navbar .serc-brand-container {
+  margin-left: 0 !important;
+  flex: 0 0 auto;
+}
+
+#navbar .serc-brand-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+}
+
+#navbar .serc-brand-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#navbar .serc-brand-logo {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  display: block;
+  flex: 0 0 46px;
+}
+
+#navbar .serc-brand-title {
+  color: #1a4f88 !important;
+  font-family: var(--font-display) !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap;
+}
+
+#navbar #navbarCollapse {
+  margin-left: auto;
 }
 
 .text-custom,
@@ -470,7 +535,7 @@ a:focus,
 }
 
 #culture_list .image-grid::before {
-  content: "中心建设";
+  content: "文化";
   display: block;
   grid-column: 1 / -1;
   color: var(--ink-900) !important;
@@ -480,6 +545,57 @@ a:focus,
   line-height: 1.3 !important;
   letter-spacing: 0 !important;
   margin: 0 0 2px 0 !important;
+}
+
+.route-page-title {
+  color: var(--ink-900) !important;
+  font-family: var(--font-display) !important;
+  font-size: 30px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+  margin: 0 0 22px 0 !important;
+}
+
+/* Dedicated about route: keep only introduction copy + image */
+body.route-about #Introduction.section {
+  margin-top: 92px !important;
+  padding-top: 20px !important;
+  padding-bottom: 70px !important;
+}
+
+body.route-about #Introduction > br {
+  display: none !important;
+}
+
+body.route-about #Introduction .features-box {
+  margin-top: 0 !important;
+}
+
+body.route-about .route-page-title[data-route-title-key="about"] {
+  margin-top: 0 !important;
+  margin-bottom: 18px !important;
+}
+
+body.route-about #Introduction .features-box > h2 {
+  display: block !important;
+  color: var(--ink-900) !important;
+  font-family: var(--font-display) !important;
+  font-size: 30px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+  margin: 0 0 18px 0 !important;
+}
+
+/* Homepage intro: text summary only, hide right-side image */
+body.route-home #Introduction .row.align-items-center > .col-lg-4.order-1.order-lg-2 {
+  display: none !important;
+}
+
+body.route-home #Introduction .row.align-items-center > .col-lg-8.order-2.order-lg-1 {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
 }
 
 #culture_list .image-item.parent {
@@ -575,6 +691,20 @@ a:focus,
   border-bottom: 1px solid transparent !important;
 }
 
+#student_list #team_mentor_section {
+  margin-bottom: 22px !important;
+}
+
+#student_list #team_mentor_section .mentor-list {
+  margin-top: 6px !important;
+}
+
+#student_list #team_mentor_section .mentor-title {
+  color: var(--ink-500) !important;
+  font-size: 0.92em !important;
+  font-weight: 400 !important;
+}
+
 .main-title,
 .degree-title,
 .student_name,
@@ -645,6 +775,116 @@ a:focus,
 /* Keep hover feedback visible after background reset */
 .el-table--enable-row-hover .el-table__body tr:hover > td {
   background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Achievement route: compact tables and prevent horizontal overflow */
+#achievement_paper #paper,
+#achievement_patent #paper,
+#achievement_book #paper,
+#achievement_copyright #paper {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+#achievement_paper.section,
+#achievement_patent.section,
+#achievement_book.section,
+#achievement_copyright.section {
+  overflow-x: hidden !important;
+}
+
+#achievement_paper .el-table,
+#achievement_patent .el-table,
+#achievement_book .el-table,
+#achievement_copyright .el-table {
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+}
+
+#achievement_paper .el-table__header-wrapper table,
+#achievement_paper .el-table__body-wrapper table,
+#achievement_patent .el-table__header-wrapper table,
+#achievement_patent .el-table__body-wrapper table,
+#achievement_book .el-table__header-wrapper table,
+#achievement_book .el-table__body-wrapper table,
+#achievement_copyright .el-table__header-wrapper table,
+#achievement_copyright .el-table__body-wrapper table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+/* Per-table column ratios: avoid equal-width blank gaps */
+#achievement_paper .el-table colgroup col:nth-child(1) { width: 4% !important; }
+#achievement_paper .el-table colgroup col:nth-child(2) { width: 44% !important; }
+#achievement_paper .el-table colgroup col:nth-child(3) { width: 8% !important; }
+#achievement_paper .el-table colgroup col:nth-child(4) { width: 8% !important; }
+#achievement_paper .el-table colgroup col:nth-child(5) { width: 12% !important; }
+#achievement_paper .el-table colgroup col:nth-child(6) { width: 14% !important; }
+#achievement_paper .el-table colgroup col:nth-child(7) { width: 10% !important; }
+
+#achievement_patent .el-table colgroup col:nth-child(1) { width: 6% !important; }
+#achievement_patent .el-table colgroup col:nth-child(2) { width: 24% !important; }
+#achievement_patent .el-table colgroup col:nth-child(3) { width: 36% !important; }
+#achievement_patent .el-table colgroup col:nth-child(4) { width: 22% !important; }
+#achievement_patent .el-table colgroup col:nth-child(5) { width: 12% !important; }
+
+#achievement_copyright .el-table colgroup col:nth-child(1) { width: 8% !important; }
+#achievement_copyright .el-table colgroup col:nth-child(2) { width: 62% !important; }
+#achievement_copyright .el-table colgroup col:nth-child(3) { width: 30% !important; }
+
+#achievement_paper .el-table colgroup col,
+#achievement_patent .el-table colgroup col,
+#achievement_book .el-table colgroup col,
+#achievement_copyright .el-table colgroup col {
+  min-width: 0 !important;
+}
+
+#achievement_paper .el-table .cell,
+#achievement_patent .el-table .cell,
+#achievement_book .el-table .cell,
+#achievement_copyright .el-table .cell {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Text-heavy columns left aligned to reduce perceived inter-column blank */
+#achievement_paper .el-table th:nth-child(2) .cell,
+#achievement_paper .el-table td:nth-child(2) .cell,
+#achievement_patent .el-table th:nth-child(2) .cell,
+#achievement_patent .el-table td:nth-child(2) .cell,
+#achievement_patent .el-table th:nth-child(3) .cell,
+#achievement_patent .el-table td:nth-child(3) .cell,
+#achievement_copyright .el-table th:nth-child(2) .cell,
+#achievement_copyright .el-table td:nth-child(2) .cell {
+  text-align: left !important;
+}
+
+#achievement_paper .el-table th,
+#achievement_paper .el-table td,
+#achievement_patent .el-table th,
+#achievement_patent .el-table td,
+#achievement_book .el-table th,
+#achievement_book .el-table td,
+#achievement_copyright .el-table th,
+#achievement_copyright .el-table td {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
+#achievement_paper .el-tag,
+#achievement_patent .el-tag,
+#achievement_book .el-tag,
+#achievement_copyright .el-tag {
+  font-size: 12px !important;
+  line-height: 1.3 !important;
+  padding: 0 6px !important;
 }
 
 /* Borderless layout and no gradient/background frames */
@@ -847,6 +1087,7 @@ a:focus,
 .footer-alt {
   padding: 8px 0 10px !important;
   border-top: none !important;
+  display: none !important;
 }
 
 .footer-alt-border {
@@ -898,9 +1139,28 @@ a:focus,
     font-size: 20px !important;
   }
 
+  #navbar .container {
+    min-height: 52px;
+  }
+
+  #navbar .serc-brand-logo {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+
+  #navbar .serc-brand-title {
+    font-size: 18px !important;
+  }
+
+  #ShowPicture.section {
+    margin-top: 84px !important;
+    padding-top: 8px !important;
+  }
+
   .nav-link,
   .navbar-custom .navbar-nav li a {
-    font-size: 14px !important;
+    font-size: 15px !important;
   }
 
   .footer .row > .col-lg-4.margin-t-20:last-child {
@@ -918,7 +1178,8 @@ a:focus,
   }
 
   #student_list .main-title,
-  #culture_list .image-grid::before {
+  #culture_list .image-grid::before,
+  .route-page-title {
     font-size: 28px !important;
   }
 
@@ -937,16 +1198,54 @@ a:focus,
     width: 148px !important;
     height: 148px !important;
   }
+
+  #achievement_paper .el-table .cell,
+  #achievement_patent .el-table .cell,
+  #achievement_book .el-table .cell,
+  #achievement_copyright .el-table .cell {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+
+  #achievement_paper .el-tag,
+  #achievement_patent .el-tag,
+  #achievement_book .el-tag,
+  #achievement_copyright .el-tag {
+    font-size: 11px !important;
+    padding: 0 5px !important;
+  }
 }
 
 @media (max-width: 575.98px) {
+  #navbar .container {
+    min-height: 48px;
+  }
+
+  #navbar .serc-brand-logo {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  #navbar .serc-brand-title {
+    display: none !important;
+  }
+
+  #ShowPicture.section {
+    margin-top: 78px !important;
+    padding-top: 6px !important;
+  }
+
   .footer .footer-contact-line {
     grid-template-columns: 74px minmax(0, 1fr) !important;
     column-gap: 6px !important;
   }
 
   #student_list .main-title,
-  #culture_list .image-grid::before {
+  #culture_list .image-grid::before,
+  .route-page-title {
     font-size: 24px !important;
   }
 
