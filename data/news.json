@@ -897,6 +897,32 @@
             "graphicAbstract": "CLCC.jpeg",
             "doi": "10.7544/issn1000-1239.202550692",
             "href": "https://dx.doi.org/10.7544/issn1000-1239.202550692"
+        },
+        {
+            "id": "36",
+            "title": "硕士研究生张亚东在CCF T1、A类中文期刊《电子学报》发表最新研究成果——基于大语言模型的Web文本输入组件测试方法",
+            "content": [
+                {
+                    "types": "text",
+                    "info": "文本输入组件广泛用于搜索、创作等Web交互场景，其输入常受语法和业务规则约束。现有Web GUI测试工具难以充分识别单个及多个输入组件间的约束关系，导致生成的测试输入缺乏针对性和多样性，难以有效发现相关错误。"
+                },
+                {
+                    "types": "text",
+                    "info": "为此，本文提出基于大语言模型的Web应用文本输入组件测试方法LTICT。该方法首先从HTML中提取输入组件信息，引导LLM推断约束关系并合成测试程序；随后执行程序批量生成测试输入；最后结合组件上下文和测试执行结果，反馈给LLM分析多组件间约束，从而生成更多样化的输入组合。"
+                },
+                {
+                    "types": "image",
+                    "info": "LTICT.jpg"
+                },
+                {
+                    "types": "text",
+                    "info": "实验表明，在4个开源Web应用上，LTICT相较WebExplor、DBInputs和QTypist，检测错误数量分别提升34.21%、37.84%和8.51%。"
+                }
+            ],
+            "date": "2026年6月26日",
+            "graphicAbstract": "LTICT.jpg",
+            "doi": "10.12263/DZXB.20250880",
+            "href": "https://www.ejournal.org.cn/thesisDetails#10.12263/DZXB.20250880&lang=zh"
         }
     ]
 }
