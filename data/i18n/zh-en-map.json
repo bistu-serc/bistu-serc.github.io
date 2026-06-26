@@ -252,7 +252,7 @@
   "张家铭": "Zhang Jiaming",
   "张瑞宸": "Zhang Ruichen",
   "张亚东": "Zhang Yadong",
-  "张亚东, 崔展齐, 兰文尉, 等. 基于大语言模型的Web文本输入组件测试方法[J]. 电子学报, 2026, 54(01): 276-290. DOI: 10.12263/DZXB.20250880": "ZHANG Yadong, CUI Zhanqi, LAN Wenwei, et al. Testing Text Input Components of Web Applications Based on Large Language Models[J]. Acta Electronica Sinica, 2026, 54(01): 276-290. DOI: 10.12263/DZXB.20250880",
+  "张亚东, 崔展齐*, 兰文尉, 徐伟利, 曹鹤玲. 基于大语言模型的Web文本输入组件测试方法[J]. 《电子学报》. (CCF T1、A类中文期刊, EI期刊, Published)": "ZHANG Yadong, CUI Zhanqi*, LAN Wenwei, XU Weili, CAO Heling. Testing Text Input Components of Web Applications Based on Large Language Models[J]. Acta Electronica Sinica. (CCF T1, A-class Chinese journal, EI journal, Published)",
   "张亚东, 崔展齐*, 兰文尉, 徐伟利, 曹鹤玲": "Zhang Yadong, Cui Zhanqi*, Lan Wenwei, Xu Weili, Cao Heling",
   "张梓豪": "Zhang Zihao",
   "针对上述问题，本文提出基于文本特征分析的问答系统模糊测试方法QAAttack，采用多种蜕变关系进行种子变异，计算问题句中单词的TF-IDF分数以确定优先变异顺序，并引入基于答案语义相似度的种子选择策略，在每轮迭代中优先选择最可能触发系统错误的种子。": "In response to the above problems, this paper proposes QAAttack, a fuzz testing method for question and answer systems based on text feature analysis. It uses multiple transformation relationships for seed mutation, calculates the TF-IDF scores of words in question sentences to determine the priority mutation order, and introduces a seed selection strategy based on the semantic similarity of answers to prioritize the seeds that are most likely to trigger system errors in each iteration.",
