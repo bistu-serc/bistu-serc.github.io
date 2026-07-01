@@ -22,7 +22,7 @@
     en: true
   };
   var HOME_INTRO_SUMMARY_ZH =
-    "北京信息科技大学软件工程研究中心源于1979年设立的“软件工程研究与开发中心”，长期承担国家重点科研与工程任务，见证并推动了我国软件工程技术与相关标准的发展。中心面向“软件分析与测试、智能软件工程、可信人工智能”三大方向，形成了从理论方法、关键算法到系统平台与工具落地的完整能力链，在模糊测试、符号执行、自动化测试、漏洞检测与安全评估等方面具备扎实工程实力。依托导师与学生协同团队，中心持续产出高水平论文、专利与软著，主持多类纵向与横向项目，并建设可服务教学科研与产业应用的软件工具体系，体现了“科研创新+工程实现+成果转化”一体化特色。";
+    "北京信息科技大学软件工程研究中心源于1979年设立的“软件工程研究与开发中心”，长期承担国家重点科研与工程任务，见证并推动了我国软件工程技术与相关标准的发展。中心面向“软件分析与测试、智能软件工程、可信人工智能”三大方向，形成了从理论方法、关键算法到系统平台与工具落地的完整能力链，在模糊测试、符号执行、自动化测试、漏洞检测与安全评估等方面具备扎实工程实力。实验室毕业生发展去向良好，主要进入银行、科研院所及国有企事业单位。部分毕业生继续在高校攻读博士学位，在可信人工智能、软件工程等方向开展深入研究。依托导师与学生协同团队，中心持续产出高水平论文、专利与软著，主持多类纵向与横向项目，并建设可服务教学科研与产业应用的软件工具体系，体现了“科研创新+工程实现+成果转化”一体化特色。";
   var HOME_INTRO_SUMMARY_EN =
     "The Software Engineering Research Center at Beijing Information Science and Technology University traces back to 1979 and has long undertaken national-level research and engineering projects. The center focuses on software analysis and testing, intelligent software engineering, and trustworthy AI, with end-to-end capability from theory and algorithms to platforms and practical tools. It has delivered strong engineering outcomes in fuzzing, symbolic execution, automated testing, vulnerability detection, and security assessment. Through close collaboration between faculty and students, the center continuously produces high-impact papers, patents, and software copyrights, leads government and industry projects, and builds toolchains serving research, education, and real-world applications.";
   var ABOUT_PARAGRAPHS_EN = [
